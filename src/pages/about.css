@@ -1,0 +1,92 @@
+.about-container {
+  text-align: center;
+  padding: 20px;
+  color: white;
+  background-color: black;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+  margin-top: 20px;
+  flex-wrap: wrap; 
+}
+
+.text-container {
+  max-width: 600px;
+  text-align: left;
+}
+
+.text-container p {
+  text-align: left; 
+  margin: 10px 0; 
+}
+
+.highlight {
+  background-color: #800000; 
+  color: rgb(255, 255, 255); 
+}
+
+.contact-button {
+  background-color: #800000; 
+  border: none;
+  color: white; 
+  padding: 10px 20px;
+  text-align: center; 
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px; 
+  margin: 10px 2px;
+  cursor: pointer;
+  border-radius: 12px; 
+  font-weight: bold; 
+  transition: background-color 0.3s ease, transform 0.3s ease; 
+}
+
+.contact-button:hover {
+  background-color: #781b1b; 
+  transform: scale(1.05); 
+}
+
+.hexagon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0; 
+  padding: 0; 
+}
+
+.hexagon img {
+  width: 100%; 
+  height: auto;
+  max-width: 100%;
+  margin: 0; 
+  padding: 0; 
+}
+
+/* Media Queries pour la responsivité */
+@media (max-width: 768px) {
+  .content {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .text-container {
+    max-width: 100%;
+    text-align: center; 
+  margin-top: -20px;
+  }
+
+  .hexagon img {
+    width: 80vw; 
+  }
+
+  .contact-button {
+    width: 100%;
+    padding: 15px;
+    font-size: 18px;
+  }
+}

@@ -1,0 +1,169 @@
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.home-logo {
+  max-width: 25%; 
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.bouton {
+  background-color: #800000;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1rem;
+  margin: 10px 2px;
+  cursor: pointer;
+  border-radius: 12px;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.bouton:hover {
+  background-color: #781b1b;
+  transform: scale(1.05);
+}
+
+h1 {
+  text-align: center;
+  font-size: 2rem;
+  color: #ffffff;
+}
+
+p {
+  text-align: center;
+  font-size: 1rem;
+  color: #ffffff;
+  margin: 5px 0;
+}
+
+.highlight {
+  background-color: #800000;
+  padding: 2px 4px;
+  color: #ffffff;
+}
+
+.image-container {
+  position: relative;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.image-reahome {
+  max-width: 70%;
+  height: auto;
+}
+
+.overlay-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #800000;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 12px;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3), 0 4px 8px rgba(0, 0, 0, 0.2); 
+}
+
+.overlay-button:hover {
+  background-color: #781b1b;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4), 0 6px 12px rgba(0, 0, 0, 0.3); 
+}
+
+
+
+.home-images {
+  display: flex;
+  justify-content: center; 
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 1200px;
+  margin-top: 20px;
+}
+
+.home-item {
+  flex: 1 1 30%;
+  text-align: center;
+  margin: 10px;
+}
+
+.home-image {
+  max-width: 100%;
+  height: auto;
+  margin-top: 10px;
+}
+
+.icon-rotate {
+  transform: rotate(90deg);
+  transition: transform 0.3s ease; 
+}
+
+
+/* Media Queries for responsiveness */
+@media (max-width: 768px) {
+  .home-logo {
+    max-width: 90%;
+  }
+  
+  .home-logo {
+    display: none;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  p {
+    font-size: 0.875rem;
+  }
+
+  .bouton, .overlay-button {
+    font-size: 0.875rem;
+    padding: 8px 16px;
+  }
+
+  .home-images {
+    flex-direction: column;
+  }
+
+  .home-item {
+    flex: 1 1 100%;
+    margin: 10px 0;
+  }
+
+  .image-reahome {
+    max-width: 100%;
+  }
+}
+
+/* Additional styles for large screens */
+@media (min-width: 1200px) {
+  .home-logo {
+    max-width: 20%; 
+  }
+
+  .home-images {
+    justify-content: space-between; 
+  }
+
+  .home-item {
+    flex: 1 1 30%;
+  }
+}
