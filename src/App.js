@@ -8,7 +8,7 @@ import About from './pages/About';
 import Services from './pages/Services';
 import Realisations from './pages/Realisations';
 import Contact from './pages/Contact';
-
+import { Analytics } from "@vercel/analytics/react"
 function App() {
   return (
     <Router>
