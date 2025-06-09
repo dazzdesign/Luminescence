@@ -1,28 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import './Navbar.css';
-import logo from '../../img/logoBarnav.png';
+import logoDesktop from '../../img/logoBarnav.png';
 import logoMobile from '../../img/logoBarnav.png';
 import logoFooter from '../../img/logonavmobile.png';
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
-  const [currentLogo, setCurrentLogo] = useState(logo);
-  const [rotationFinished, setRotationFinished] = useState(false);
+  const [currentLogo, setCurrentLogo] = useState(logoDesktop);
   const location = useLocation();
 
   const toggleMenu = () => {
     setMenuOpen(prev => !prev);
-    setCurrentLogo(menuOpen ? (isMobile ? logoMobile : logo) : logoFooter);
-    setRotationFinished(false);
-    setTimeout(() => setRotationFinished(true), 300);
+    setCurrentLogo(!menuOpen ? logoFooter : (isMobile ? logoMobile : logoDesktop));
   };
 
   const handleResize = () => {
-    setIsMobile(window.innerWidth < 768);
+    const mobile = window.innerWidth < 768;
+    setIsMobile(mobile);
     if (!menuOpen) {
-      setCurrentLogo(isMobile ? logoMobile : logo);
+      setCurrentLogo(mobile ? logoMobile : logoDesktop);
     }
   };
 
@@ -31,30 +29,30 @@ const Navbar = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, [menuOpen]);
 
+  const navLinks = [
+    { to: '/home', label: 'Accueil' },
+    { to: '/about', label: 'Luminescence Carrelage' },
+    { to: '/services', label: 'Expert Carrelage / Fibre Optique' },
+    { to: '/realisations', label: 'Granito' },
+    { to: '/contact', label: 'Réalisations' },
+  ];
+
   return (
     <nav className={`navbar ${menuOpen ? 'open' : ''}`}>
       <div className="navbar-logo">
-        <img src={currentLogo} alt="Provence Carrelage Logo" />
+        <img src={currentLogo} alt="Logo" />
       </div>
 
-  
       <ul className={`navbar-links ${menuOpen ? 'open' : ''}`}>
-        <li>
-          <Link to="/home" className={location.pathname === "/home" ? "active" : ""}>Home</Link>
-        </li>
-        <li>
-          <Link to="/about" className={location.pathname === "/about" ? "active" : ""}>À propos</Link>
-        </li>
-        <li>
-          <Link to="/services" className={location.pathname === "/services" ? "active" : ""}>Nos Services</Link>
-        </li>
-        <li>
-          <Link to="/realisations" className={location.pathname === "/realisations" ? "active" : ""}>Nos Réalisations</Link>
-        </li>
-        <li>
-          <Link to="/contact" className={location.pathname === "/contact" ? "active" : ""}>Contact</Link>
-        </li>
+        {navLinks.map(({ to, label }) => (
+          <li key={to}>
+            <Link to={to} className={location.pathname === to ? 'active' : ''}>
+              {label}
+            </Link>
+          </li>
+        ))}
       </ul>
+
       <button
         className={`menu-button ${menuOpen ? 'open' : ''}`}
         onClick={toggleMenu}
@@ -64,9 +62,7 @@ const Navbar = () => {
         ☰
       </button>
     </nav>
-    
   );
-  
 };
 
 export default Navbar;
