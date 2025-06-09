@@ -1,7 +1,8 @@
 {
-  "name": "my-provence-carrelage-app",
+  "name": "artisan-webapp-template",
   "version": "0.1.0",
   "private": true,
+  "description": "Template React générique pour sites web d'artisans (carreleurs, plombiers, électriciens, etc.)",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.5.2",
     "@fortawesome/fontawesome-svg-core": "^6.5.2",
