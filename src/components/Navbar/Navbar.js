@@ -33,8 +33,10 @@ const Navbar = () => {
     { to: '/home', label: 'Accueil' },
     { to: '/about', label: 'Luminescence Carrelage' },
     { to: '/services', label: 'Expert Carrelage / Fibre Optique' },
-    { to: '/realisations', label: 'Granito' },
-    { to: '/contact', label: 'Réalisations' },
+    { to: '/Granito', label: 'Granito' },
+    { to: '/realisations', label: 'Réalisations' },
+    { to: '/contact', label: 'Contact' },
+
   ];
 
   return (

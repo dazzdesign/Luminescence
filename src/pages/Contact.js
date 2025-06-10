@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import './contact.css';
+import './home.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPhoneAlt, faEnvelope, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 import emailjs from 'emailjs-com';
 
 const handleContact = () => {
-  window.location.href = 'tel:0622765751';
+  window.location.href = 'tel:0603123065';
 };
 
 const Contact = () => {
@@ -44,12 +45,12 @@ const Contact = () => {
   return (
     <div className="contact-container">
       <header className="contact-header">
-        <h1><span className="highlight">Contactez-nous</span></h1>
+        <h1>Contactez-nous</h1>
         <p className="contact-subtitle">
           Pour une information ou un devis, veuillez remplir le formulaire ci-dessous
           ou nous contacter par téléphone.
         </p>
-        <button className="contact-button" onClick={handleContact}>
+        <button className="bouton" onClick={handleContact}>
           Nous contacter par téléphone <FontAwesomeIcon icon={faPhoneAlt} />
         </button>
       </header>
@@ -90,15 +91,15 @@ const Contact = () => {
           onChange={handleChange}
           required
         ></textarea>
-        <button type="submit" className="submit-button">Envoyer</button>
+        <button type="submit" className="bouton">Envoyer</button>
       </form>
 
       {successMessage && <p className="contact-thankyou">{successMessage}</p>}
 
       <div className="contact-info">
-        <p>Laurent Dussert</p>
-        <p><FontAwesomeIcon icon={faPhoneAlt} /> 06.22.75.87.51</p>
-        <p><FontAwesomeIcon icon={faEnvelope} /> provencecarrelage.pro@gmail.com</p>
+        <p>Denis Dussert</p>
+        <p><FontAwesomeIcon icon={faPhoneAlt} /> 06.03.12.30.65</p>
+        <p><FontAwesomeIcon icon={faEnvelope} /> contact@luminescence-carrelage.fr</p>
         <p><FontAwesomeIcon icon={faMapMarkerAlt} /> 302 Chemin des Vannades, 04100 Manosque</p>
       </div>
     </div>

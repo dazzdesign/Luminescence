@@ -1,65 +1,62 @@
 import React, { useEffect } from 'react';
-import './services.css'; // Assuming we will create a corresponding CSS file for styles
-import carrelage from '../img/home/carrelage.png';
-import Mosaïque from '../img/home/Mosaïque.png';
-import Parement from '../img/home/Parement.png';
+import './services.css'; // Garde ce fichier pour tes styles
 
 const Services = () => {
   useEffect(() => {
-    window.scrollTo(0, 0); // Scroll to the top on component mount
+    window.scrollTo(0, 0); // Scroll en haut à l'ouverture
   }, []);
 
   return (
     <div className="services-container">
-      <div className="services">
-        <h1><span className="highlight">Nos services</span></h1>
-        <br/>
-        <p>Bienvenue sur notre page services. Nous réalisons tous vos projets de carrelage, mosaïque et parement, 
-          avec un savoir-faire de qualité.
-        </p>
-        <br/>
-        <br/>
-        <div className="service">
-          <img src={carrelage} alt="Réalisations" className="image-reahome" />
-          <div className="service-text">
-            <h2><span className="highlight">Carrelage</span></h2>
-            <p>
-              Nous offrons des services de pose de <span className="highlight">carrelage de qualité</span>,
-              alliant <span className="highlight">esthétique et durabilité</span>. Que ce soit pour <span className="highlight">l'intérieur</span> ou
-              <span className="highlight">l'extérieur</span>, nous vous assurons une précision pour créer
-              des espaces <span className="highlight">élégants et fonctionnels</span>. Notre expertise couvre tous
-              types de carrelage, des plus traditionnels aux plus modernes, afin
-              de répondre à tous vos critères décoratifs.
-            </p>
-          </div>
-        </div>
-        <div className="service">
-          <img src={Mosaïque} alt="Réalisations" className="image-reahome" />
-          <div className="service-text">
-            <h2><span className="highlight">Mosaïques</span></h2>
-            <p>
-              Notre équipe réalise l'installation de <span className="highlight">mosaïques personnalisées</span>. Nous utilisons des <span className="highlight">matériaux variés</span>
-              et des <span className="highlight">techniques avancées</span> pour créer des motifs originaux et élégants. Si vous cherchez à ajouter une touche unique à vos
-              espaces, qu'il s'agisse de <span className="highlight">salles de bains</span>, de <span className="highlight">cuisines</span> ou
-              d'espaces extérieurs, notre travail met en valeur vos créations en véritables œuvres.
-            </p>
-          </div>
-        </div>
-        <div className="service">
-          <img src={Parement} alt="Réalisations" className="image-reahome" />
-          <div className="service-text">
-            <h2><span className="highlight">Parement</span></h2>
-            <p>
-  Transformez vos murs avec notre expertise en pose de parement en <span className="highlight">pierre naturelle</span> ou <span className="highlight">brique</span>. Nos experts assurent une <span className="highlight">installation durable</span> pour des <span className="highlight">effets esthétiques</span> uniques, que ce soit à l'<span className="highlight">intérieur</span> ou à l'<span className="highlight">extérieur</span>. Nous travaillons avec des matériaux de <span className="highlight"> qualité</span> pour sublimer vos surfaces.
-</p>
+      <h1>notre spécialité : l'inclusion de lumière fibre optique multisurface</h1>
+      <h2>un travail minutieux pour un résultat exceptionnel</h2>
 
+      <p>
+        Élément fort de la décoration, créatrice d’ambiance et de bien-être, l’illumination des parois (sol, mur…) au moyen de la fibre suscite un vif intérêt chez les particuliers, architectes, décorateurs et paysagistes.
+        Les possibilités sont immenses et l’inclusion de lumière dans les surfaces en carrelages, dalles, mosaïques, ou autres supports donne un résultat adapté à de très nombreux projets :
+      </p>
 
+      <ul>
+        <li>Salons, chambres, salles d’eau ou de bain, douches, escaliers, couloirs,</li>
+        <li>Hammams, saunas, piscines, bassins et fontaines,</li>
+        <li>Decks, terrasses, allées,</li>
+        <li>Hôtels, gîtes, chambres d’hôtes, restaurants, bars, lounges,</li>
+        <li>Espaces de détente et bien-être, de remise en forme et de sport,</li>
+        <li>Halls d’exposition, boutiques, présentations muséographiques,</li>
+        <li>Lieux de santé ou pour personnes malvoyantes (la fibre est très visible !),</li>
+        <li>Tout espace où l’installation de sources lumineuses impérissables est impossible.</li>
+      </ul>
 
+      <p>
+        FIBRE & CARRO est au service de tous les projets, des plus simples aux plus extravagants, avec le même amour du travail bien fait, le même souci d’offrir une part de rêve, en France comme à l’étranger.
+      </p>
 
+      <p>
+        La réalisation d’un projet de fibre optique lumineuse dans le carrelage, fournitures et installations, peut varier de quelques centaines à plusieurs dizaines de milliers d’euros selon le projet, ce qui rend la fibre optique accessible à de nombreux budgets.
+      </p>
 
-          </div>
-        </div>
-      </div>
+      <h3>Les atouts incomparables de la fibre optique</h3>
+
+      <p>
+        À la différence de tout autre type d’éclairage, le système de la fibre optique différencie nettement le générateur de lumière de son conducteur, ce qui présente des avantages incomparables.
+      </p>
+
+      <p>
+        La fibre optique utilisée par LUMINESCENCE CARRELAGE est de qualité similaire à celle de la fibre de verre, qui est impérissable ! Cette fibre, une fois mise en place dans les matériaux, est insensible à son environnement ainsi qu’aux agressions habituelles de la vie d’un intérieur ou d’un espace extérieur (eau, nettoyants, changements de température, UV…). En conséquence, ce conducteur est installé à vie, en tout cas aussi longtemps que le carrelage ou le matériau reste en place ! C’est une différence énorme avec les autres systèmes encastrés qui, une fois en panne ou en fin de vie, nécessitent de tout casser pour être réinstallés.
+        La propriété de la fibre optique est donc de conduire la lumière qu’on lui soumet jusqu’à son extrémité, seul point visible une fois la réalisation terminée, quelle que soit cette lumière en terme de couleur, d’intensité ou de variations.
+      </p>
+
+      <p>
+        À l’origine des fibres est installé le générateur, accessible en un lieu choisi, hors de l’espace éclairé. C’est avec ce générateur que l’on diffuse la lumière désirée (blanc froid, blanc chaud, couleurs ou variations de couleurs) et que l’on impulse la manière dont elle est diffusée.
+      </p>
+
+      <p>
+        Tout est donc possible : lumière fixe, scintillement, changement de couleur, variations d’intensité, etc. Le variateur est pilotable par télécommande.
+      </p>
+
+      <p>
+        Les fibres permettent de changer totalement d’ambiance en intervenant simplement sur le générateur. Par exemple, si vous souhaitez passer d’une lumière blanche à la chromothérapie, nul besoin d’intervenir sur les fibres : il suffit d’adapter le générateur en conséquence ! Fabuleux n'est-ce pas ?
+      </p>
     </div>
   );
 };

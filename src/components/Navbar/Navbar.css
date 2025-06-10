@@ -14,7 +14,7 @@
 }
 
 .navbar-logo img {
-  height: 50px;       /* Hauteur fixe pour éviter que le logo soit trop grand */
+  height: 60px;       /* Hauteur fixe pour éviter que le logo soit trop grand */
   width: auto;
   max-width: none;
 }
@@ -38,7 +38,7 @@
 .navbar-links a {
   text-decoration: none;
   color: white; 
-  font-size: 13px;    /* Police un peu plus petite */
+  font-size: 14px;    /* Police un peu plus petite */
   font-weight: 600;
   transition: color 0.3s ease;
   white-space: nowrap; 
@@ -48,24 +48,35 @@
 
 .navbar-links a:hover,
 .navbar-links a.active {
-  color: #b0a06c; 
-  border-radius: 5px; 
+  background: radial-gradient(circle at 50% 40%, #FFF5B0, #FFD700 40%, #FFC000 75%, #B8860B);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  border-radius: 5px;
+  transition: all 0.3s ease;
 }
 
+
 .menu-button {
-  display: none; 
+  display: none;
   background: none;
   border: none;
-  color: white;
   font-size: 24px;
   cursor: pointer;
   transition: color 0.3s ease;
-  margin: 0 auto; 
+  margin: 0 auto;
+  background: radial-gradient(circle at 50% 40%, #FFF5B0, #FFD700 40%, #FFC000 75%, #B8860B);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
 }
 
 .menu-button:hover {
-  color: #800000; 
+  filter: brightness(1.2);
 }
+
 
 .menu-button.open {
   animation: rotate 0.5s forwards;
@@ -145,11 +156,11 @@
   width: 100%;
   height: auto;
   max-width: 250px;
-  border-bottom: 3px solid #800000;
+  border-bottom: 3px solid #b0a06c;
   object-fit: cover;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 960px) {
   .projet-image {
     max-width: 300px; 
     width: 80%; 
@@ -187,7 +198,7 @@
 }
 
 .thumbnail.selected {
-  border: 2px solid #800000;
+  border: 2px solid #b0a06c;
   transform: scale(1.1);
 }
 
@@ -195,53 +206,4 @@
   transform: scale(1.05);
 }
 
-/* Modal Styles */
-.modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 10;
-}
 
-.modal-content {
-  max-width: 80%;
-  max-height: 80%;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  overflow: hidden;
-}
-
-.modal-image {
-  max-width: 100%;
-  max-height: 60%;
-  object-fit: contain;
-}
-
-.modal-close {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  background: none;
-  border: none;
-  color: #ffffff;
-  font-size: 2.5em;
-  font-weight: bold;
-  cursor: pointer;
-  padding: 5px;
-}
-
-/* Footer Styles */
-.footer {
-  background-color: #0C0C0C;
-  color: white;
-  text-align: center;
-  padding: 20px 0;
-}

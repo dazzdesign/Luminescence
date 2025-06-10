@@ -1,68 +1,70 @@
 .services-container {
-  display: flex;
-  justify-content: center;
-  padding: 20px; 
-  background-color: black; 
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  background-color: #000000;
+  color: #ffffff;
+  line-height: 1.6;
 }
 
-.services {
-  font-family: Arial, sans-serif;
-  max-width: 800px;
-  color: white; 
-}
-
-h1 {
+.services-container h1 {
   text-align: center;
+  font-size: 2.5rem;
+  color: #ffffff;
+  text-transform: uppercase;
+  margin-bottom: 0.3em;
 }
 
-.service {
-  display: flex;
-  align-items: center; 
-  margin-bottom: 20px;
-  padding: 10px; 
+.services-container h2 {
+  text-align: center;
+  font-weight: 400;
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  color: #ffffff;
+  font-style: italic;
 }
 
-.service img {
-  width: 30%;
-  height: auto;
-  margin-right: 20px;
-  border-radius: 8px; 
+.services-container h3 {
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 1.6rem;
 }
 
-.service-text {
-  max-width: 600px;
-  text-align: left;
+.services-container p {
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+  color: #ffffff;
 }
 
-.service-text h2 {
-  margin-top: 0;
+.services-container ul {
+  margin-left: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: #ffffff;
 }
 
-.service-text p {
-  margin: 0;
-  text-align: left;
+.services-container ul li {
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
 }
 
-.highlight {
-  background-color: #800000; 
-  font-weight: bold;
-}
-
-/* Media Queries for Responsiveness */
-@media (max-width: 768px) {
-  .service {
-    flex-direction: column; 
-    align-items: center;
-    text-align: center; 
+/* Responsive */
+@media (max-width: 600px) {
+  .services-container {
+    padding: 30px 15px;
   }
 
-  .service img {
-    width: 80%; 
-    margin-right: 0; 
-    margin-bottom: 10px;
+  .services-container h1 {
+    font-size: 2rem;
   }
 
-  .service-text {
-    max-width: 100%; 
+  .services-container h2 {
+    font-size: 1.2rem;
+  }
+
+  .services-container p,
+  .services-container ul li {
+    font-size: 1rem;
   }
 }

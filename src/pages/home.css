@@ -12,9 +12,9 @@
 }
 
 .bouton {
-  background-color: #800000;
+  background: radial-gradient(circle at 50% 40%, #FFF5B0, #FFD700 40%, #FFC000 75%, #B8860B);
   border: none;
-  color: white;
+  color: rgb(0, 0, 0);
   padding: 10px 20px;
   text-align: center;
   text-decoration: none;
@@ -24,19 +24,29 @@
   cursor: pointer;
   border-radius: 12px;
   font-weight: bold;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
 }
+
 
 .bouton:hover {
-  background-color: #781b1b;
   transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.5), 0 0 30px rgba(255, 215, 0, 0.3);
 }
 
+
 h1 {
-  text-align: center;
-  font-size: 2rem;
-  color: #ffffff;
+  text-align: center !important;
+  font-size: 2rem !important;
+  background: radial-gradient(circle at 50% 40%, #FFF5B0, #FFD700 40%, #FFC000 70%, #B8860B);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
 }
+
+
+
 
 p {
   text-align: center;
@@ -45,11 +55,7 @@ p {
   margin: 5px 0;
 }
 
-.highlight {
-  background-color: #800000;
-  padding: 2px 4px;
-  color: #ffffff;
-}
+
 
 .image-container {
   position: relative;
@@ -62,30 +68,8 @@ p {
   height: auto;
 }
 
-.overlay-button {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #800000;
-  border: none;
-  color: white;
-  padding: 10px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  cursor: pointer;
-  border-radius: 12px;
-  font-weight: bold;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3), 0 4px 8px rgba(0, 0, 0, 0.2); 
-}
 
-.overlay-button:hover {
-  background-color: #781b1b;
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4), 0 6px 12px rgba(0, 0, 0, 0.3); 
-}
+
 
 
 
@@ -99,7 +83,6 @@ p {
 }
 
 .home-item {
-  flex: 1 1 30%;
   text-align: center;
   margin: 10px;
 }
@@ -143,10 +126,7 @@ p {
     flex-direction: column;
   }
 
-  .home-item {
-    flex: 1 1 100%;
-    margin: 10px 0;
-  }
+
 
   .image-reahome {
     max-width: 100%;
@@ -163,7 +143,43 @@ p {
     justify-content: space-between; 
   }
 
-  .home-item {
-    flex: 1 1 30%;
-  }
+
 }
+
+.luminescence-info {
+  padding: 40px 20px;
+  background-color: #0c0c0c;
+  color: #fff;
+  line-height: 1.6;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-size: 28px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+
+.info-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.info-list li {
+  position: relative;
+  padding-left: 1.5em; /* espace pour la puce */
+}
+
+.info-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 0.6em;
+  height: 0.6em;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 40%, #FFF5B0, #FFD700 40%, #FFC000 75%, #B8860B);
+}
+

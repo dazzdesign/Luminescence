@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import Zoom from 'react-medium-image-zoom';
+import 'react-medium-image-zoom/dist/styles.css';
 import './realisation.css';
 
 import img1a from '../img/chantiers/1a.jpg';
@@ -29,65 +31,28 @@ import img9a from '../img/chantiers/9a.jpg';
 import img9b from '../img/chantiers/9b.jpg';
 import img9c from '../img/chantiers/9c.jpg';
 
+const projets = [
+  { titre: 'Carrelage Moderne', images: [img1a, img1b, img1c] },
+  { titre: 'Salle de bain contemporaine', images: [img2a, img2b, img2c] },
+  { titre: 'Carrelage Extérieur', images: [img3a, img3b, img3c] },
+  { titre: 'Rénovation de Salle de Bain', images: [img4a, img4b, img4c] },
+  { titre: 'Aménagement de Terrasse', images: [img5a, img5b, img5c] },
+  { titre: 'Bureau Professionnel', images: [img6a, img6b, img6c] },
+  { titre: 'Aménagement Piscine', images: [img7a, img7b, img7c] },
+  { titre: 'Salle de Bain Design', images: [img8a, img8b, img8c] },
+  { titre: 'Carrelage Haut de Gamme', images: [img9a, img9b, img9c] },
+];
+
 const Realisation = () => {
   const [selectedProject, setSelectedProject] = useState(null);
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
 
-  const projets = [
-    {
-      titre: 'Carrelage Moderne',
-      description: "Installation d'un carrelage moderne dans une salle de bain.",
-      images: [img1a, img1b, img1c],
-    },
-    {
-      titre: 'Salle de bain contemporaine',
-      description: "Rénovation complète d'une salle de bain.",
-      images: [img2a, img2b, img2c],
-    },
-    {
-      titre: 'Carrelage Extérieur',
-      description: "Pose de carrelage extérieur pour une piscine.",
-      images: [img3a, img3b, img3c],
-    },
-    {
-      titre: 'Rénovation de Salle de Bain',
-      description: "Modernisation d'une salle de bain.",
-      images: [img4a, img4b, img4c],
-    },
-    {
-      titre: 'Aménagement de Terrasse',
-      description: "Création d'un espace extérieur accueillant.",
-      images: [img5a, img5b, img5c],
-    },
-    {
-      titre: 'Rénovation de Bureau Professionnel',
-      description: "Installation d'un carrelage pour des bureaux.",
-      images: [img6a, img6b, img6c],
-    },
-    {
-      titre: 'Aménagement de Piscine',
-      description: "Pose de carrelage élégant autour d'une piscine.",
-      images: [img7a, img7b, img7c],
-    },
-    {
-      titre: 'Pose de Carrelage Salle de Bain',
-      description: "Installation de carrelage dans une salle de bain moderne.",
-      images: [img8a, img8b, img8c],
-    },
-    {
-      titre: 'Pose de Carrelage Salle de Bain',
-      description: "Installation soignée de carrelage dans une salle de bain.",
-      images: [img9a, img9b, img9c],
-    },
-  ];
-
-  const handleImageClick = (projectIndex, imageIndex) => {
+  const openModal = (projectIndex, imageIndex) => {
     setSelectedProject(projectIndex);
     setSelectedImageIndex(imageIndex);
   };
 
-  const closeModal = (e) => {
-    e.stopPropagation();
+  const closeModal = () => {
     setSelectedProject(null);
     setSelectedImageIndex(0);
   };
@@ -102,23 +67,18 @@ const Realisation = () => {
 
   return (
     <div className="realisation-container">
-      <h1><span className="highlight">Nos Réalisations</span></h1>
-      <p>Bienvenue dans notre galerie !</p> 
-      <br/>
-      <p>Cliquez sur chaque image pour en découvrir plus sur le projet.</p>   
-     <br/>
-      <br/>
+      <h1 className="realisation-title">Nos Réalisations</h1>
+      <p className="realisation-subtitle">Des projets sur mesure au service de l'élégance</p>
+
       <div className="projets">
         {projets.map((projet, projectIndex) => (
-          <div key={projectIndex} className="projet">
-            <img
-              src={projet.images[0]}
-              alt={projet.titre}
-              className="projet-image"
-              onClick={() => handleImageClick(projectIndex, 0)}
-            />
-            <h2>{projet.titre}</h2>
-            <p>{projet.description}</p>
+          <div
+            key={projectIndex}
+            className="projet"
+            onClick={() => openModal(projectIndex, 0)}
+          >
+            <img src={projet.images[0]} alt={projet.titre} className="projet-image" />
+            <div className="projet-titre">{projet.titre}</div>
           </div>
         ))}
       </div>
@@ -126,21 +86,25 @@ const Realisation = () => {
       {selectedProject !== null && (
         <div className="modal" onClick={closeModal}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <button className="modal-close" onClick={closeModal}>&times;</button>
-            <img
-              src={projets[selectedProject].images[selectedImageIndex]}
-              alt="Agrandissement"
-              className="modal-image"
-            />
+            <button className="modal-close" onClick={closeModal}>
+              &times;
+            </button>
+            <Zoom>
+              <img
+                src={projets[selectedProject].images[selectedImageIndex]}
+                alt="Agrandissement"
+                className="modal-image"
+              />
+            </Zoom>
             <div className="thumbnail-gallery">
               <div className="thumbnails">
-                {projets[selectedProject].images.map((image, index) => (
+                {projets[selectedProject].images.map((img, i) => (
                   <img
-                    key={index}
-                    src={image}
-                    alt={`Miniature ${index + 1}`}
-                    className={`thumbnail ${index === selectedImageIndex ? 'selected' : ''}`}
-                    onClick={() => selectThumbnail(index)}
+                    key={i}
+                    src={img}
+                    alt=""
+                    className={`thumbnail ${i === selectedImageIndex ? 'selected' : ''}`}
+                    onClick={() => selectThumbnail(i)}
                   />
                 ))}
               </div>
