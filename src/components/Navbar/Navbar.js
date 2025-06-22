@@ -36,7 +36,6 @@ const Navbar = () => {
     { to: '/Granito', label: 'Granito' },
     { to: '/realisations', label: 'Réalisations' },
     { to: '/contact', label: 'Contact' },
-
   ];
 
   return (
@@ -46,13 +45,16 @@ const Navbar = () => {
       </div>
 
       <ul className={`navbar-links ${menuOpen ? 'open' : ''}`}>
-        {navLinks.map(({ to, label }) => (
-          <li key={to}>
-            <Link to={to} className={location.pathname === to ? 'active' : ''}>
-              {label}
-            </Link>
-          </li>
-        ))}
+        {navLinks.map(({ to, label }) => {
+          const isActive = location.pathname === to || (to === '/home' && location.pathname === '/');
+          return (
+            <li key={to}>
+              <Link to={to} className={isActive ? 'active' : ''}>
+                {label}
+              </Link>
+            </li>
+          );
+        })}
       </ul>
 
       <button

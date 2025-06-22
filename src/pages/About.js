@@ -2,6 +2,9 @@ import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './about.css'; 
 import hexImage from '../img/apropos.png'; 
+import parement from '../img/home/Parement.jpeg';
+
+
 
 const About = () => {
   const navigate = useNavigate();
@@ -43,6 +46,23 @@ const About = () => {
           <button className="bouton" onClick={handleContact}>
             Nous contacter
           </button>
+               {/* Section PROCARRÉ */}
+      <section className="home-item">
+                <h2>Explorez PROCARRÉ et Fils</h2>
+
+        <img src={parement} alt="Parement mural" className="hero-image" />
+        <p>
+Alliez expertise artisanale et innovation avec PROCARRÉ et Fils, une entreprise familiale mêlant tradition et modernité pour vos projets de création ou de rénovation.. 
+
+        </p>
+        <button
+          className="bouton"
+          onClick={() => navigate('/realisations')}
+          aria-label="Découvrir PROCARRÉ et Fils"
+        >
+          Découvrir www.procarre.fr
+        </button>
+      </section>
         </div>
       </div>
     </div>

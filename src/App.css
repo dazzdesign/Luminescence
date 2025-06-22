@@ -1,8 +1,10 @@
 /* App.css */
 body {
-    font-family: 'Quicksand', sans-serif;
-    font-weight: bold; 
-    font-size: 16px; 
-    background-color: black;
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  font-size: 17px;
+  background-color:#000000; /* fond noir */
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* pour éviter les scroll liés au canvas */
 }
-

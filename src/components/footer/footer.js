@@ -14,7 +14,6 @@ const Footer = () => {
           <p> Notre ambition ? Apporter une touche d’exception et de rêve, en France comme à l’international.</p>
         </div>
         <div className="footer-menu">
-          <h3>Menu</h3>
           <ul>
             <li><Link to="/home">Accueil</Link></li>
             <li><Link to="/about">Luminescence Carrelage</Link></li>
@@ -25,7 +24,6 @@ const Footer = () => {
           </ul>
         </div>
         <div className="footer-contact">
-          <h3>Coordonnées</h3>
           <p>Denis Dussert</p>
           <p><FontAwesomeIcon icon={faPhoneAlt} /> 06.03.12.30.65</p>
           <p><FontAwesomeIcon icon={faEnvelope} /> contact@luminescence-carrelage.fr</p>
