@@ -1,6 +1,6 @@
 .contact-container {
   color: #fff;
-  background-color: #000;
+  background-color: #00000000;
   padding: 20px;
   text-align: center;
 }
@@ -37,7 +37,7 @@
 }
 
 .contact-info {
-  background-color: #0C0C0C;
+  background-color: #0c0c0cdf;
   padding: 20px;
   border-radius: 10px;
   margin-top: 20px;

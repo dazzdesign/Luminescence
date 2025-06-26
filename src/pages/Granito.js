@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import './Granito.css';  // à créer pour le style
-import './home.css';  // à créer pour le style
 
 const Granito = () => {
   useEffect(() => {

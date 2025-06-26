@@ -1,3 +1,268 @@
+/* Home.css - Section Infos entreprise */
+
+.fade-section {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease-out;
+  will-change: opacity, transform;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.luminescence-info {
+  padding-top: 5rem; /* 80px */
+  padding-bottom: 5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 768px) {
+  .luminescence-info {
+    padding-left: 3rem; /* 48px */
+    padding-right: 3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .luminescence-info {
+    padding-left: 6rem; /* 96px */
+    padding-right: 6rem;
+  }
+}
+
+.luminescence-info .section-title {
+  font-size: 2.5rem; /* 40px */
+  font-weight: 700;
+  color: #1f2937; /* gray-900 */
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.luminescence-info .section-title .gold,
+.luminescence-info .text-yellow-500 {
+  color: #ffffff; /* yellow-500 */
+  transition: color 0.3s ease;
+}
+
+.luminescence-info .section-title .gold:hover,
+.luminescence-info .text-yellow-500:hover {
+  color: #f59e0b; /* yellow-600 */
+  text-decoration: underline;
+}
+
+.luminescence-info p {
+  font-size: 1.125rem; /* 18px */
+  color: #ffffff; /* gray-700 */
+  max-width: 48rem; /* 768px */
+  margin: 0 auto 3rem;
+  text-align: left;
+  line-height: 1.6;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.luminescence-info .grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem; /* 40px */
+}
+
+@media (min-width: 768px) {
+  .luminescence-info .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.luminescence-info .card {
+  background-color: #0c0c0c8e;
+  border-radius: 1.25rem; /* rounded-2xl */
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: box-shadow 0.3s ease;
+}
+
+.luminescence-info .card:hover {
+  box-shadow: 0 25px 40px rgba(0, 0, 0, 0.18);
+}
+
+.luminescence-info .card-icon {
+  font-size: 2.5rem; /* 40px */
+  margin-bottom: 1rem;
+}
+
+.luminescence-info .card-title {
+  font-size: 1.25rem; /* 20px */
+  font-weight: 600;
+  color: #374151; /* gray-800 */
+  margin-bottom: 0.5rem;
+}
+
+.luminescence-info .card-desc {
+  font-size: 1rem; /* 16px */
+  color: #ffffff; /* gray-600 */
+  line-height: 1.5;
+}
+
+.luminescence-info a {
+  color: #fbbf24;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+.luminescence-info a:hover {
+  color: #f59e0b;
+}
+
+.luminescence-info .btn-primary {
+  margin-top: 3rem;
+  display: inline-block;
+  background-color: #fbbf24;
+  color: rgb(0, 0, 0);
+  font-weight: 600;
+  font-size: 1.125rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px; /* rounded-full */
+  box-shadow: 0 8px 15px rgba(251, 191, 36, 0.3);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  text-decoration: none;
+}
+
+.luminescence-info .btn-primary:hover {
+  background-color: #f59e0b;
+  box-shadow: 0 12px 20px rgba(245, 158, 11, 0.4);
+  color: rgb(0, 0, 0);
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Animation pour l'apparition progressive */
+.fade-section {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s ease forwards;
+  animation-delay: 0.3s;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Amélioration des ombres sur les cards */
+.shadow-xl {
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+  transition: box-shadow 0.3s ease;
+}
+
+.shadow-xl:hover {
+  box-shadow: 0 25px 40px rgba(0, 0, 0, 0.18);
+}
+
+/* Style du lien "gold" pour uniformiser avec le jaune */
+.text-yellow-500, .gold {
+  color: #FBBF24; /* même jaune que tailwind yellow-500 */
+  transition: color 0.3s ease;
+}
+
+.text-yellow-500:hover, .gold:hover {
+  color: #F59E0B; /* yellow-600 */
+  text-decoration: underline;
+}
+
+/* Bouton personnalisé */
+a.bg-yellow-500 {
+  box-shadow: 0 8px 15px rgba(251, 191, 36, 0.3);
+}
+
+a.bg-yellow-500:hover {
+  box-shadow: 0 12px 20px rgba(245, 158, 11, 0.4);
+}
+
+/* Amélioration du texte de la section */
+section p {
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+/* Responsive tweaks si besoin */
+@media (max-width: 768px) {
+  .text-5xl {
+    font-size: 3rem; /* légèrement plus petit sur mobile */
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .fiber-roll-illustration {
   display: flex;
   justify-content: center;
@@ -42,6 +307,7 @@
 }
 
 .how-description {
+  font-family: 'Poppins', sans-serif; /* police propre et moderne */
   font-size: 1.1rem;
   text-align: center;
   color: #555;
@@ -73,21 +339,13 @@
 
 @media (max-width: 760px) {
   .modern-arrow {
-    display: none;
+    margin-top: 100px;
   }
 }
 
-.vertical-divider{
-margin-top: -26px;
-margin-bottom: -110px;  
-}
 
-@media (max-width: 760px) {
-.vertical-divider{
-display: none; 
 
-}
-}
+
 
 @keyframes chevronAppear {
   0% {
@@ -155,6 +413,7 @@ html, body {
 }
 
 .hero-content {
+  margin-top: 233px;
   max-width: 900px;
   padding: 1rem;
   display: flex;
@@ -200,8 +459,24 @@ p, .hero-content p {
 .bouton {
   background: radial-gradient(circle at 50% 40%, #FFF5B0, #FFD700 40%, #FFC000 75%, #B8860B);
   border: none;
-  color: #000;
+  color: #000000;
+  font-family: 'Poppins', sans-serif; /* police propre et moderne */
+  font-weight: 700;  /* gras pour bien ressortir */
+  font-size: 1rem; /* un peu plus grand que par défaut */
+  letter-spacing: 0.05em; /* un léger espacement entre les lettres */
+  text-transform: uppercase; /* majuscules pour plus d’impact */
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  transition: color 0.3s ease;
 }
+
+.bouton:hover,
+.bouton:focus {
+  color: #222222;
+  outline: none;
+}
+
 
 .bouton-outline {
   background: transparent;
@@ -211,7 +486,6 @@ p, .hero-content p {
 
 .bouton:hover,
 .bouton-outline:hover {
-  transform: scale(1.05);
   box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
 }
 
@@ -274,6 +548,26 @@ p, .hero-content p {
   opacity: 1;
   transform: translateY(0);
 }
+.fade-section {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease-out;
+  will-change: opacity, transform;
+}
+
+.fade-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.content-box {
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+
 
 @media (max-width: 1024px) {
   .hero-section {
@@ -291,6 +585,7 @@ p, .hero-content p {
 
 @media (max-width: 768px) {
   .hero-section {
+    
     height: 60vh;
   }
 

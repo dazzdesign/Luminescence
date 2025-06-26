@@ -15,6 +15,11 @@ import vitrine from '../img/home/1.png';
 import parement from '../img/home/1.png';
 import './home.css';
 
+
+
+
+
+
 const Home = () => {
   const navigate = useNavigate();
   const [scrollY, setScrollY] = useState(0);
@@ -22,18 +27,24 @@ const Home = () => {
   useEffect(() => {
     const handleScroll = () => {
       setScrollY(window.scrollY);
+
+      // Animation on scroll
       document.querySelectorAll('.fade-section').forEach((section) => {
         const rect = section.getBoundingClientRect();
         if (rect.top < window.innerHeight * 0.85) {
           section.classList.add('visible');
+
+
         }
       });
     };
 
     window.addEventListener('scroll', handleScroll);
-    handleScroll();
+    handleScroll(); // check on load
 
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
 const slides = [
@@ -44,7 +55,7 @@ const slides = [
 
 
   return (
-    <div className="home-container">
+    <div className="home-container ">
              <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet" />
 
       {/* Hero Section */}
@@ -62,18 +73,12 @@ const slides = [
             </p>
           </div>
 
-          <button
-            className="bouton"
-            onClick={() => window.location.href = 'tel:0603123065'}
-            aria-label="Nous contacter par téléphone"
-          >
-            Nous contacter <FontAwesomeIcon icon={faPhoneAlt} />
-          </button>
+
           
         </div>
       </header>
 
-<div className="vertical-divider">
+<div className="fade-section">
   <svg className="modern-arrow" viewBox="0 0 24 80" width="160" height="200">
     <defs>
       <linearGradient id="animated-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
@@ -102,10 +107,8 @@ const slides = [
 
 
       {/* Section Slider Comment ça marche */}
-{/* Section Comment ça Marche */}
 <section className="fade-section how-it-works">
-  {/* Section Slider Réalisations */}
-  <div className="how-it-works-slider fade-section">
+  <div className="how-it-works-slider">
     <Swiper
       modules={[Autoplay, EffectFade]}
       effect="fade"
@@ -431,41 +434,120 @@ const slides = [
 
 
 
-      {/* Section Infos entreprise */}
-      <section className="fade-section luminescence-info">
-        <div className="highlight-section">
-          <h2 className="section-title">
-            Pourquoi Choisir <span className="gold">LUMINESCENCE CARRELAGE</span> ?
-          </h2>
+<section className="fade-section luminescence-info">
+  <div className="max-w-7xl mx-auto">
+    <h2 className="section-title">
+      Pourquoi Choisir <span className="gold">LUMINESCENCE CARRELAGE</span> ?
+    </h2>
 
-          <div className="highlight-cards">
-            <div className="highlight-card">
-              <h4 className="highlight-title">✨ Innovation</h4>
-              <p>Effets lumineux uniques via fibre optique.</p>
-            </div>
+    <p>
+      Chez <strong>LUMINESCENCE CARRELAGE</strong>, nous allions <strong>innovation lumineuse</strong>, <strong>design architectural</strong> et <strong>qualité certifiée</strong> pour offrir une solution unique sur le marché du revêtement. Notre expertise en <a href="#">fibre optique intégrée</a> permet de créer des carrelages lumineux durables, esthétiques et adaptés à tous les environnements.
+    </p>
 
-            <div className="highlight-card">
-              <h4 className="highlight-title">🏊‍♀️ Polyvalence</h4>
-              <p>Adapté aux salles de bain, piscines, commerces, etc.</p>
-            </div>
-
-            <div className="highlight-card">
-              <h4 className="highlight-title">🏗️ Qualité</h4>
-              <p>Matériaux certifiés par Construction Chemicals BASF.</p>
-            </div>
-          </div>
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-10">
+      {/* Innovation SVG */}
+      <div className="card text-center p-6 bg-gray-50 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300">
+        <div className="card-icon mx-auto mb-4">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="#fbbf24"
+            viewBox="0 0 24 24"
+            width="40"
+            height="40"
+            aria-label="Innovation"
+          >
+            <path d="M12 2a7 7 0 00-7 7c0 4.418 7 13 7 13s7-8.582 7-13a7 7 0 00-7-7z" />
+            <circle cx="12" cy="7" r="1.5" fill="#f59e0b" />
+            <path
+              d="M12 9v4"
+              stroke="#92400e"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
         </div>
-      </section>
+        <h3 className="text-xl font-semibold mb-2">Technologie Innovante</h3>
+        <p className="text-gray-600 text-sm md:text-base">
+          Maîtrise exclusive de la <a href="#" className="text-yellow-500 underline hover:text-yellow-600">technologie à fibre optique</a> pour des effets lumineux inédits, directement intégrés dans le carrelage.
+        </p>
+      </div>
 
+      {/* Applications SVG */}
+      <div className="card text-center p-6 bg-gray-50 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300">
+        <div className="card-icon mx-auto mb-4">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="#fbbf24"
+            viewBox="0 0 24 24"
+            width="40"
+            height="40"
+            aria-label="Applications"
+          >
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+            <path
+              d="M3 9h18M9 21V9"
+              stroke="#92400e"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </div>
+        <h3 className="text-xl font-semibold mb-2">Applications Multiples</h3>
+        <p className="text-gray-600 text-sm md:text-base">
+          Adapté aux <a href="#" className="text-yellow-500 underline hover:text-yellow-600">piscines</a>, <a href="#" className="text-yellow-500 underline hover:text-yellow-600">salles de bain</a>, terrasses et espaces commerciaux, notre carrelage s’intègre dans tout type de projet architectural.
+        </p>
+      </div>
+
+      {/* Durabilité SVG */}
+      <div className="card text-center p-6 bg-gray-50 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300">
+        <div className="card-icon mx-auto mb-4">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="#fbbf24"
+            viewBox="0 0 24 24"
+            width="40"
+            height="40"
+            aria-label="Durabilité et Qualité"
+          >
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+            <path
+              d="M9 12l2 2 4-4"
+              stroke="#92400e"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </div>
+        <h3 className="text-xl font-semibold mb-2">Durabilité & Qualité</h3>
+        <p className="text-gray-600 text-sm md:text-base">
+          Matériaux premium validés par <a href="https://www.basf.com/fr/fr.html" target="_blank" rel="noopener noreferrer" className="text-yellow-500 underline hover:text-yellow-600">BASF Construction Chemicals</a>, garantissant une lumière stable, résistante aux UV, à l'humidité et au temps.
+        </p>
+      </div>
+    </div>
+<br/>
+       
+  </div>
+</section>
+
+
+
+
+
+
+      
+      
       {/* Section Voir réalisations */}
-      <section className="fade-section home-realisations">
+      <section className="home-realisations">
         <img src={parement} alt="Parement lumineux en fibre optique" className="responsive-image" />
         <button
           className="bouton"
           onClick={() => navigate('/realisations')}
           aria-label="Voir nos réalisations"
         >
-          Voir nos réalisations
+          Découvrir notre gallerie
         </button>
       </section>
     </div>

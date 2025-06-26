@@ -2,7 +2,7 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 60px 20px;
-  background: #000;
+  background: #ff000000;
   color: #fff;
 }
 
@@ -60,7 +60,7 @@
 .modal {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.9);
+  background: rgba(0, 0, 0, 0.859);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -78,7 +78,7 @@
 }
 
 .modal-content {
-  background: #111;
+  background: #3a3a3a00;
   padding: 30px;
   border-radius: 16px;
   max-width: 90%;
