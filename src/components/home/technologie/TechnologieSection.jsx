@@ -34,9 +34,9 @@ const TechnologieSection = () => {
             <circle cx="25" cy="68" r="4" fill="#00e5ff" stroke="#ffffff" strokeWidth="0.8" />
           </svg>
 
-          <p className="how-description">
-            La fibre optique sépare la source de lumière de son conducteur.
-          </p>
+<p className="how-description">
+  La <span className="highlight-led">fibre optique</span> sépare la source de lumière de son conducteur.
+</p>
 
           {/* Tuyau lumineux */}
           <div className="fiber-tube">
@@ -66,9 +66,9 @@ const TechnologieSection = () => {
             </svg>
           </div>
 
-          <p className="how-description">
-            Cela offre une flexibilité unique pour l'ambiance lumineuse.
-          </p>
+<p className="how-description">
+  Cela offre une <span className="highlight-led">flexibilité unique</span> pour l’ambiance lumineuse.
+</p>
 
           {/* Télécommande */}
           <svg className="icon remote-small-icon" width="50" height="150" viewBox="0 0 40 80" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Télécommande réaliste">
@@ -128,9 +128,10 @@ const TechnologieSection = () => {
             </circle>
           </svg>
 
-          <p className="how-description">
-            Tout est possible avec notre système télécommandé.
-          </p>
+<p className="how-description">
+  Tout est possible avec notre <span className="highlight-led">système télécommandé</span>.
+</p>
+
         </div>
       </div>
     </section>

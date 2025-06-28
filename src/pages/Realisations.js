@@ -103,11 +103,7 @@ const Realisation = () => {
         ))}
       </div>
 
-      {/* Widget des avis clients */}
-      <div className="avis-widget-section">
-        <h2>Avis de nos clients</h2>
-        <AvisGarantisWidget />
-      </div>
+
 
       {/* Modale d'affichage des images */}
       {selectedProject !== null && (

@@ -33,9 +33,12 @@ const Navbar = () => {
       {/* ----- 🌐 Desktop NAVBAR ----- */}
       {!isMobile && (
         <nav className="navbar-desktop">
-          <div className="navbar-logo">
-            <img src={logo} alt="Logo" />
-          </div>
+<div className="navbar-logo">
+  <Link to="/home">
+    <img src={logo} alt="Logo" />
+  </Link>
+</div>
+
           <ul className="navbar-links">
             {navLinks.map(({ to, label }) => (
               <li key={to}>

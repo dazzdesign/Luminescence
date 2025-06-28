@@ -1,32 +1,93 @@
 .home-realisations {
-  position: relative;
-  text-align: center;
-  padding: 4rem 1rem;
-  background: #000;
+  padding: 5rem 1rem;
+  display: flex;
+  justify-content: center;
 }
 
-.home-realisations .responsive-image {
+.realisations-container {
   width: 100%;
-  max-height: 480px;
+  max-width: 900px;
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.realisations-image {
+  width: 100%;
+  max-height: 540px;
   object-fit: cover;
-  border-radius: 1rem;
+  object-position: center;
+  filter: brightness(0.6);
+  border-radius: 16px;
+  display: block;
+}
+
+/* ✅ Texte sous l'image, centré et lisible */
+.realisations-content {
+  text-align: center;
+  color: white;
+  padding: 2.5rem 1.5rem 0;
+  max-width: 720px;
+}
+
+.realisations-title {
+  font-size: 2.1rem;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, #fff5cc, #FFD700);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.realisations-text {
+  font-size: 1.05rem;
+  color: #e0e0e0;
+  line-height: 1.65;
   margin-bottom: 2rem;
 }
 
-.home-realisations .bouton {
-  font-size: 1.1rem;
-  padding: 14px 30px;
-  background: radial-gradient(circle at 50% 40%, #FFF5B0, #FFD700 40%, #FFC000 75%, #B8860B);
+.bouton {
+  font-size: 1rem;
+  padding: 12px 28px;
+  background: linear-gradient(135deg, #fff9d0, #FFD700, #b88b0b);
   border: none;
   border-radius: 9999px;
   color: #000;
-  font-weight: 700;
+  font-weight: 600;
   cursor: pointer;
-  transition: box-shadow 0.3s ease, transform 0.2s ease;
-  box-shadow: 0 0 12px rgba(255, 215, 0, 0.4);
+  transition: all 0.3s ease;
+  box-shadow: 0 0 14px rgba(255, 215, 0, 0.4);
 }
 
-.home-realisations .bouton:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+.bouton:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 24px rgba(255, 215, 0, 0.7);
+}
+
+/* 📱 Responsive Mobile */
+@media (max-width: 768px) {
+  .realisations-image {
+    max-height: 320px;
+    filter: brightness(0.55);
+  }
+
+  .realisations-content {
+    padding: 2rem 1rem 0;
+  }
+
+  .realisations-title {
+    font-size: 1.6rem;
+  }
+
+  .realisations-text {
+    font-size: 1rem;
+  }
+
+  .bouton {
+    font-size: 0.95rem;
+    padding: 10px 24px;
+  }
 }

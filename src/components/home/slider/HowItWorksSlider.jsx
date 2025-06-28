@@ -12,16 +12,16 @@ import './HowItWorksSlider.css';
 
 const HowItWorksSlider = () => {
   const slides = [
-    { title: 'Salle de bain', image: img1 },
-    { title: 'Carrelage lumineux', image: img2 },
-    { title: 'Vitrine', image: img3 }
+{ title: 'Sublimez votre intérieur', image: img1 },
+    { title: 'Illuminez votre piscine', image: img2 },
+    { title: 'Valorisez vos sanitaires', image: img3 }
   ];
 
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
     <section className="how-it-works-slider">
-      <h1 className="slider-heading">{slides[activeIndex].title}</h1>
+      <h3 className="slider-heading">{slides[activeIndex].title}</h3>
 
       <Swiper
         modules={[Autoplay, EffectFade]}

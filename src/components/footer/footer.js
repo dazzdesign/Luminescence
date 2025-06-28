@@ -9,10 +9,13 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer-content">
-        <div className="footer-logo">
-          <img src={logo} alt="Logo Provence Carrelage" className="footer-logo" />
-          <p> Notre ambition ? Apporter une touche d’exception et de rêve, en France comme à l’international.</p>
-        </div>
+<div className="footer-logo">
+  <Link to="/home">
+    <img src={logo} alt="Logo Provence Carrelage" className="footer-logo" />
+  </Link>
+  <p> Notre ambition ? Apporter une touche d’exception et de rêve, en France comme à l’international.</p>
+</div>
+
         <div className="footer-menu">
           <ul>
             <li><Link to="/home">Accueil</Link></li>

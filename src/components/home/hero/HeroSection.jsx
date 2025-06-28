@@ -11,6 +11,7 @@ const HeroSection = () => {
     <img src={logo} alt="Luminescence Carrelage" className="hero-image" />
     <div className="hero-gradient-overlay" />
   </div>
+  
 </header>
 
       <div className="hero-chevron-wrapper">
