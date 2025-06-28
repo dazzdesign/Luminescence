@@ -1,71 +1,93 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import './Navbar.css';
-import logoDesktop from '../../img/logoBarnav.png';
-import logoMobile from '../../img/logoBarnav.png';
-import logoFooter from '../../img/logonavmobile.png';
+import logo from '../../img/logoBarnav.png';
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
-  const [currentLogo, setCurrentLogo] = useState(logoDesktop);
   const location = useLocation();
 
-  const toggleMenu = () => {
-    setMenuOpen(prev => !prev);
-    setCurrentLogo(!menuOpen ? logoFooter : (isMobile ? logoMobile : logoDesktop));
+  const handleResize = () => {
+    setIsMobile(window.innerWidth < 768);
   };
 
-  const handleResize = () => {
-    const mobile = window.innerWidth < 768;
-    setIsMobile(mobile);
-    if (!menuOpen) {
-      setCurrentLogo(mobile ? logoMobile : logoDesktop);
-    }
-  };
+  const toggleMenu = () => setMenuOpen(prev => !prev);
 
   useEffect(() => {
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
-  }, [menuOpen]);
+  }, []);
 
   const navLinks = [
     { to: '/home', label: 'Accueil' },
-    { to: '/about', label: 'Luminescence Carrelage' },
-    { to: '/services', label: 'Expert Carrelage / Fibre Optique' },
-    { to: '/Granito', label: 'Granito' },
+    { to: '/about', label: 'À propos' },
+    { to: '/services', label: 'Expertise' },
+    { to: '/granito', label: 'Granito' },
     { to: '/realisations', label: 'Réalisations' },
     { to: '/contact', label: 'Contact' },
   ];
 
   return (
-    <nav className={`navbar ${menuOpen ? 'open' : ''}`}>
-      <div className="navbar-logo">
-        <img src={currentLogo} alt="Logo" />
-      </div>
+    <>
+      {/* ----- 🌐 Desktop NAVBAR ----- */}
+      {!isMobile && (
+        <nav className="navbar-desktop">
+          <div className="navbar-logo">
+            <img src={logo} alt="Logo" />
+          </div>
+          <ul className="navbar-links">
+            {navLinks.map(({ to, label }) => (
+              <li key={to}>
+                <Link
+                  to={to}
+                  className={location.pathname === to ? 'active' : ''}
+                >
+                  {label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      )}
 
-      <ul className={`navbar-links ${menuOpen ? 'open' : ''}`}>
-        {navLinks.map(({ to, label }) => {
-          const isActive = location.pathname === to || (to === '/home' && location.pathname === '/');
-          return (
-            <li key={to}>
-              <Link to={to} className={isActive ? 'active' : ''}>
+      {/* ----- 📱 Mobile Header ----- */}
+      {isMobile && (
+        <>
+          <div className="mobile-header">
+            <img src={logo} alt="Logo mobile" className="logo-mobile-centered" />
+          </div>
+
+          {/* Bouton circulaire chic */}
+          <button
+            className={`elegant-toggle ${menuOpen ? 'open' : ''}`}
+            onClick={toggleMenu}
+            aria-label="Menu"
+          >
+            <div className="hamburger-lines">
+              <span />
+              <span />
+              <span />
+            </div>
+          </button>
+
+          {/* Menu mobile chic */}
+          <div className={`luxury-menu ${menuOpen ? 'open' : ''}`}>
+            {navLinks.map(({ to, label }, index) => (
+              <Link
+                key={to}
+                to={to}
+                className={`menu-link ${location.pathname === to ? 'active' : ''}`}
+                style={{ animationDelay: `${index * 0.1}s` }}
+                onClick={() => setMenuOpen(false)}
+              >
                 {label}
               </Link>
-            </li>
-          );
-        })}
-      </ul>
-
-      <button
-        className={`menu-button ${menuOpen ? 'open' : ''}`}
-        onClick={toggleMenu}
-        title="Menu"
-        aria-label="Menu"
-      >
-        ☰
-      </button>
-    </nav>
+            ))}
+          </div>
+        </>
+      )}
+    </>
   );
 };
 

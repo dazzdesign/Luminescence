@@ -1,0 +1,56 @@
+.fade-section {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+  will-change: opacity, transform;
+}
+
+.fade-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.modern-arrow path {
+  opacity: 0;
+  transform: scale(0.5) translateY(-10px);
+  transform-origin: center;
+  animation: chevronAppear 0.6s ease-out forwards;
+  fill: none; /* <<< empêche les flèches d’être pleines */
+  stroke: url(#animated-gradient); /* <<< coloré par dégradé animé */
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  filter: drop-shadow(0 0 4px #fff3b0);
+}
+
+.modern-arrow path:nth-of-type(1) {
+  stroke-width: 1.5;
+  animation-delay: 0.33s;
+}
+.modern-arrow path:nth-of-type(2) {
+  stroke-width: 2;
+  animation-delay: 0.66s;
+}
+.modern-arrow path:nth-of-type(3) {
+  stroke-width: 2.5;
+  animation-delay: 0.99s;
+}
+
+@media (max-width: 760px) {
+  .modern-arrow {
+    margin-top: 10px;
+  }
+}
+
+@keyframes chevronAppear {
+  0% {
+    opacity: 0;
+    transform: scale(0.5) translateY(-10px);
+    filter: drop-shadow(0 0 0 transparent);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    filter: drop-shadow(0 0 8px #ffd700);
+  }
+}
+

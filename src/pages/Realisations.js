@@ -43,6 +43,26 @@ const projets = [
   { titre: 'Carrelage Haut de Gamme', images: [img9a, img9b, img9c] },
 ];
 
+const AvisGarantisWidget = () => {
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://api.guaranteed-reviews.com/js/widget.js';
+    script.async = true;
+    document.body.appendChild(script);
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+
+  return (
+    <div
+      className="guaranteed-reviews-widget"
+      data-template-id="site"
+      data-public-key="4e7f93b6-b4f0-11e6-9fb5-00163e4567b6"
+    />
+  );
+};
+
 const Realisation = () => {
   const [selectedProject, setSelectedProject] = useState(null);
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
@@ -83,6 +103,13 @@ const Realisation = () => {
         ))}
       </div>
 
+      {/* Widget des avis clients */}
+      <div className="avis-widget-section">
+        <h2>Avis de nos clients</h2>
+        <AvisGarantisWidget />
+      </div>
+
+      {/* Modale d'affichage des images */}
       {selectedProject !== null && (
         <div className="modal" onClick={closeModal}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>

@@ -1,0 +1,42 @@
+.how-it-works-slider {
+  max-width: 90%;
+  margin: 40px auto;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.slider-heading {
+  color: gold;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.slider-subtitle {
+  color: #fff8cc;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.slide-container {
+  height: 450px;
+  width: 100%;
+  background-size: contain; /* 🔁 au lieu de cover */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #000; /* pour éviter les bandes blanches */
+  position: relative;
+}
+
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+  .slide-container {
+    height: 300px;
+  }
+}

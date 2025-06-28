@@ -1,0 +1,32 @@
+.home-realisations {
+  position: relative;
+  text-align: center;
+  padding: 4rem 1rem;
+  background: #000;
+}
+
+.home-realisations .responsive-image {
+  width: 100%;
+  max-height: 480px;
+  object-fit: cover;
+  border-radius: 1rem;
+  margin-bottom: 2rem;
+}
+
+.home-realisations .bouton {
+  font-size: 1.1rem;
+  padding: 14px 30px;
+  background: radial-gradient(circle at 50% 40%, #FFF5B0, #FFD700 40%, #FFC000 75%, #B8860B);
+  border: none;
+  border-radius: 9999px;
+  color: #000;
+  font-weight: 700;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 0 12px rgba(255, 215, 0, 0.4);
+}
+
+.home-realisations .bouton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+}
