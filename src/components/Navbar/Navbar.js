@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import './Navbar.css';
 import logo from '../../img/logoBarnav.png';
 
@@ -28,40 +28,46 @@ const Navbar = () => {
     { to: '/contact', label: 'Contact' },
   ];
 
+  const isAccueilActive = location.pathname === '/' || location.pathname === '/home';
+
   return (
     <>
-      {/* ----- 🌐 Desktop NAVBAR ----- */}
+      {/* ======= 🌐 DESKTOP NAVBAR ======= */}
       {!isMobile && (
         <nav className="navbar-desktop">
-<div className="navbar-logo">
-  <Link to="/home">
-    <img src={logo} alt="Logo" />
-  </Link>
-</div>
+          <div className="navbar-logo">
+            <NavLink to="/home">
+              <img src={logo} alt="Logo" />
+            </NavLink>
+          </div>
 
           <ul className="navbar-links">
-            {navLinks.map(({ to, label }) => (
-              <li key={to}>
-                <Link
-                  to={to}
-                  className={location.pathname === to ? 'active' : ''}
-                >
-                  {label}
-                </Link>
-              </li>
-            ))}
+            {navLinks.map(({ to, label }) => {
+              const isActive =
+                label === 'Accueil' ? isAccueilActive : location.pathname === to;
+
+              return (
+                <li key={to}>
+                  <NavLink
+                    to={to}
+                    className={isActive ? 'active' : ''}
+                  >
+                    {label}
+                  </NavLink>
+                </li>
+              );
+            })}
           </ul>
         </nav>
       )}
 
-      {/* ----- 📱 Mobile Header ----- */}
+      {/* ======= 📱 MOBILE HEADER ======= */}
       {isMobile && (
         <>
           <div className="mobile-header">
             <img src={logo} alt="Logo mobile" className="logo-mobile-centered" />
           </div>
 
-          {/* Bouton circulaire chic */}
           <button
             className={`elegant-toggle ${menuOpen ? 'open' : ''}`}
             onClick={toggleMenu}
@@ -74,19 +80,23 @@ const Navbar = () => {
             </div>
           </button>
 
-          {/* Menu mobile chic */}
           <div className={`luxury-menu ${menuOpen ? 'open' : ''}`}>
-            {navLinks.map(({ to, label }, index) => (
-              <Link
-                key={to}
-                to={to}
-                className={`menu-link ${location.pathname === to ? 'active' : ''}`}
-                style={{ animationDelay: `${index * 0.1}s` }}
-                onClick={() => setMenuOpen(false)}
-              >
-                {label}
-              </Link>
-            ))}
+            {navLinks.map(({ to, label }, index) => {
+              const isActive =
+                label === 'Accueil' ? isAccueilActive : location.pathname === to;
+
+              return (
+                <NavLink
+                  key={to}
+                  to={to}
+                  className={`menu-link ${isActive ? 'active' : ''}`}
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                  onClick={() => setMenuOpen(false)}
+                >
+                  {label}
+                </NavLink>
+              );
+            })}
           </div>
         </>
       )}

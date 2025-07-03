@@ -1,6 +1,6 @@
 .why-luminescence {
   padding: 5rem 1.5rem;
-    color: white;
+  color: white;
   text-align: center;
 }
 
@@ -28,6 +28,7 @@
   margin: 0 auto 3rem;
   line-height: 1.6;
   font-weight: 400;
+  text-align: justify;
 }
 
 .grid {
@@ -75,6 +76,7 @@
   font-size: 1rem;
   color: #ddd;
   line-height: 1.6;
+  text-align: center;
 }
 
 /* Fade in animation */

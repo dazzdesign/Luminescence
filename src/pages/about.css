@@ -1,42 +1,72 @@
+/* === Conteneur principal === */
 .about-container {
   text-align: center;
   padding: 20px;
   color: white;
 }
 
+/* === Section commune === */
 .content {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 40px;
   margin-top: 40px;
-  flex-wrap: wrap;
+  margin-bottom: 40px;
 }
 
-.text-container {
+/* === Image portrait (hexagone ou rectangle) === */
+.hexagon-container,
+.procarre-text .hexagon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hexagon img,
+.procarre-text img {
+  max-width: 609px;
+  max-height: 410px;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  margin: 20px 0;
+}
+
+/* === Bloc texte principal === */
+.text-container,
+.procarre-text {
   max-width: 600px;
+  margin: 0 auto;
+  padding: 0 20px;
   text-align: left;
 }
 
-.text-container p {
-  text-align: left;
-  margin: 10px 0;
+.text-container p,
+.procarre-text p {
+  text-align: justify;
+  margin: 12px 0;
 }
 
-.highlight {
-  background-color: #b0a06c;
-  color: white;
-  padding: 0 4px;
-  border-radius: 4px;
+/* === Titres === */
+.about-container h1 {
+  margin-bottom: 40px;
+  font-size: 24px;
 }
 
-.contact-button {
+.procarre-text h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 22px;
+}
+
+/* === Boutons === */
+.bouton {
   background-color: #b0a06c;
   border: none;
-  color: white;
+  color: #000;
   padding: 12px 24px;
-  text-align: center;
-  text-decoration: none;
   font-size: 16px;
   margin-top: 20px;
   cursor: pointer;
@@ -45,46 +75,30 @@
   transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.contact-button:hover {
-  background-color: #b0a06c;
+.bouton:hover {
   transform: scale(1.05);
 }
 
-.hexagon-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.text-container .bouton {
+  display: block;
+  margin: 30px auto 0;
 }
 
-.hexagon img {
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  border-radius: 12px;
-}
 
-/* 📱 Responsive */
+/* === Responsive === */
 @media (max-width: 768px) {
-  .content {
-    flex-direction: column;
-    align-items: center;
-    gap: 30px;
-  }
-
-  .text-container {
+  .text-container,
+  .procarre-text {
     max-width: 100%;
-    text-align: center;
   }
 
-  .text-container p {
-    text-align: center;
+  .hexagon img,
+  .procarre-text img {
+    width: 100%;
+    max-width: 90vw;
   }
 
-  .hexagon img {
-    width: 80vw;
-  }
-
-  .contact-button {
+  .bouton {
     width: 100%;
     padding: 14px;
     font-size: 18px;

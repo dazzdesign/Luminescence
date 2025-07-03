@@ -34,7 +34,7 @@
 
 .realisations-title {
   font-size: 2.1rem;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 600;
   margin-bottom: 1rem;
   background: linear-gradient(135deg, #fff5cc, #FFD700);
@@ -44,7 +44,6 @@
 
 .realisations-text {
   font-size: 1.05rem;
-  color: #e0e0e0;
   line-height: 1.65;
   margin-bottom: 2rem;
 }

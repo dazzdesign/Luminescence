@@ -2,69 +2,84 @@ import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './about.css'; 
 import hexImage from '../img/apropos.png'; 
-import parement from '../img/home/Parement.jpeg';
-
-
+import parement from '../img/home/procarre.png';
 
 const About = () => {
   const navigate = useNavigate();
 
-  const handleContact = () => {
-    navigate('/contact'); 
-  };
-
   useEffect(() => {
-    window.scrollTo(0, 0); 
+    window.scrollTo(0, 0);
   }, []);
 
   return (
     <div className="about-container">
-      <h1>Luminescence carrelage : spécialiste carrelage & fibre optique</h1>
+      <h1>Luminescence Carrelage : spécialiste carrelage & fibre optique</h1>
+
       <div className="content">
         <div className="hexagon-container">
           <div className="hexagon">
-            <img src={hexImage} alt="photo" />
+            <img src={hexImage} alt="Portrait Denis Dussert" />
           </div>
         </div>
-        
+
         <div className="text-container">
-          <p>
-            LUMINESCENCE CARRELAGE a été créée par Denis Dussert, artisan hors norme et toujours en recherche d’être à la pointe des nouvelles technologies pour servir au mieux sa clientèle.
-          </p>
-          <p>
-            Artisan du carrelage depuis 30 ans à Manosque, dans les Alpes de Haute-Provence, Denis Dussert est vivement sollicité pour la qualité de son travail. Il s’est également beaucoup investi pour trouver les meilleures solutions permettant d’inclure la lumière dans ses réalisations, ce dont il est spécialiste.
-          </p>
-          <p>
-            Le choix de la fibre optique s'explique par les effets absolument uniques que l’on ne peut créer que par le biais de celle-ci. Constatant que tout était à inventer dans ce domaine, Denis Dussert a choisi à travers LUMINESCENCE CARRELAGE les meilleurs partenaires pour obtenir un résultat d’exception et surtout durable.
-          </p>
-          <p>
-            Les prestations proposées aujourd’hui par LUMINESCENCE CARRELAGE sont le fruit de patients essais, de plusieurs brevets de mise en oeuvre qui ont enfin permis d’associer les deux matériaux que sont le carrelage et la fibre optique dans une même réalisation.
-          </p>
-          <p>
-            La mise en œuvre et les produits nécessaires (colle, carrelage, joints…) consiste en un procédé qui a été validé par le bureau d’étude de Construction Chemicals BASF France, avec la marque PCI qui, depuis plus de 50 ans, propose des solutions innovantes, à la pointe de la technologie, pour les professionnels de la construction. Le résultat vise donc tout simplement l’excellence !
-          </p>
-          <button className="bouton" onClick={handleContact}>
+<p>
+  <span className="gold-highlight">Luminescence Carrelage</span> a été fondée par <span className="gold-highlight">Denis Dussert</span>, artisan passionné depuis plus de 30 ans, installé à <span className="gold-highlight">Manosque</span>. Il s’est fait connaître pour la qualité de ses <span className="gold-highlight">réalisations</span> et son souci du <span className="gold-highlight">détail</span>.
+</p>
+
+<p>
+  <span className="gold-highlight">PROCARRÉ et Fils</span> est une <span className="gold-highlight">entreprise familiale</span> reconnue, spécialisée dans la <span className="gold-highlight">pose de carrelage</span> et la <span className="gold-highlight">rénovation</span>. C’est au sein de cette structure que <span className="gold-highlight">Denis Dussert</span> a fait ses <span className="gold-highlight">premières armes</span>.
+</p>
+
+<p>
+  Fort de cette <span className="gold-highlight">expérience</span>, il a fondé <span className="gold-highlight">Luminescence Carrelage</span> : une branche <span className="gold-highlight">innovante</span> dédiée à l’intégration de la <span className="gold-highlight">fibre optique</span> dans la matière, combinant <span className="gold-highlight">artisanat</span> et <span className="gold-highlight">technologie</span>.
+</p>
+
+<p>
+  Les deux entités partagent la même <span className="gold-highlight">exigence</span>, le même <span className="gold-highlight">savoir-faire</span>, et portent ensemble une <span className="gold-highlight">vision commune</span> : <span className="gold-highlight">sublimer les espaces</span> avec <span className="gold-highlight">précision</span>, <span className="gold-highlight">élégance</span> et <span className="gold-highlight">lumière</span>.
+</p>
+
+
+
+
+
+          <button className="bouton" onClick={() => navigate('/contact')}>
             Nous contacter
           </button>
-               {/* Section PROCARRÉ */}
-      <section className="home-item">
-                <h2>Explorez PROCARRÉ et Fils</h2>
-
-        <img src={parement} alt="Parement mural" className="hero-image" />
-        <p>
-Alliez expertise artisanale et innovation avec PROCARRÉ et Fils, une entreprise familiale mêlant tradition et modernité pour vos projets de création ou de rénovation.. 
-
-        </p>
-        <button
-          className="bouton"
-          onClick={() => navigate('/realisations')}
-          aria-label="Découvrir PROCARRÉ et Fils"
-        >
-          Découvrir www.procarre.fr
-        </button>
-      </section>
         </div>
       </div>
+<br/>
+      {/* Section PROCARRÉ */}
+       <div className="procarre-text">
+  <h2><span className="gold-highlight">PROCARRÉ et Fils</span></h2>
+      <div className="content">
+
+<div className="hexagon">
+            <img src={parement} alt="Portrait Denis Dussert" />
+          </div>
+<p>
+  <span className="gold-highlight">PROCARRÉ et Fils</span> est une <span className="gold-highlight">entreprise familiale</span> reconnue, spécialisée dans la <span className="gold-highlight">pose de carrelage</span> et la <span className="gold-highlight">rénovation</span>. C’est au sein de cette structure que <span className="gold-highlight">Denis Dussert</span> a fait ses <span className="gold-highlight">armes</span>.
+</p>
+
+<p>
+  Fort de cette <span className="gold-highlight">expérience</span>, il a fondé <span className="gold-highlight">Luminescence Carrelage</span> : une branche <span className="gold-highlight">innovante</span> dédiée à l’intégration de la <span className="gold-highlight">fibre optique</span> dans la <span className="gold-highlight">matière</span>, combinant <span className="gold-highlight">artisanat</span> et <span className="gold-highlight">technologie</span>.
+</p>
+
+<p>
+  Les deux entités partagent la même <span className="gold-highlight">exigence</span>, le même <span className="gold-highlight">savoir-faire</span>, et portent ensemble une <span className="gold-highlight">vision commune</span> : <span className="gold-highlight">sublimer les espaces</span> avec <span className="gold-highlight">précision</span>, <span className="gold-highlight">élégance</span> et <span className="gold-highlight">lumière</span>.
+</p>
+
+
+  <button
+    className="bouton"
+    onClick={() => navigate('/realisations')}
+    aria-label="Découvrir PROCARRÉ et Fils"
+  >
+    Découvrir www.procarre.fr
+  </button>
+
+    </div>
+    </div>
     </div>
   );
 };

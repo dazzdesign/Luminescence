@@ -54,3 +54,31 @@
   }
 }
 
+.modern-arrow {
+  animation: arrowFadeBounce 4s ease-in-out infinite;
+  display: block;
+  margin: 0 auto;
+}
+
+@keyframes arrowFadeBounce {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  25% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(8px);
+  }
+  75% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}

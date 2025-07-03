@@ -24,7 +24,7 @@
   background-size: contain; /* 🔁 au lieu de cover */
   background-position: center;
   background-repeat: no-repeat;
-  background-color: #000; /* pour éviter les bandes blanches */
+  background-color: trsp; /* pour éviter les bandes blanches */
   position: relative;
 }
 

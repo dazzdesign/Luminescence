@@ -10,7 +10,6 @@
 html, body {
   width: 100%;
   overflow-x: hidden;
-  font-family: 'Helvetica Neue', sans-serif;
   color: #fff;
 }
 
@@ -63,7 +62,6 @@ html, body {
 
 /* ------------------ TITRES & TEXTES ------------------ */
 h1, h2, h3 {
-  font-family: 'Urbanist', sans-serif;
   font-size: 30px;
   background: radial-gradient(circle at 50% 40%, #FFF5B0, #FFD700 40%, #FFC000 70%, #B8860B);
   -webkit-background-clip: text;
@@ -81,7 +79,7 @@ p {
   max-width: 800px;
   margin: 10px auto;
   padding: 0 20px;
-  text-align: center;
+  text-align: justify;
 }
 
 /* ------------------ BOUTONS ------------------ */
@@ -96,7 +94,7 @@ p {
   box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
   margin: 10px 0;
   text-transform: uppercase;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Poppins'!important, sans-serif;
   letter-spacing: 0.05em;
 }
 
