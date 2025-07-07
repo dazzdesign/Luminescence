@@ -21,7 +21,7 @@ const HowItWorksSlider = () => {
 
   return (
     <section className="how-it-works-slider">
-      <h3 className="slider-heading">{slides[activeIndex].title}</h3>
+      <h4 className="slider-heading">{slides[activeIndex].title}</h4>
 
       <Swiper
         modules={[Autoplay, EffectFade]}

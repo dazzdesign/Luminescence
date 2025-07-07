@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import './Navbar.css';
 import logo from '../../img/logoBarnav.png';
 
@@ -7,14 +7,14 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
   const location = useLocation();
+  const navigate = useNavigate();
 
-  const handleResize = () => {
-    setIsMobile(window.innerWidth < 768);
-  };
-
-  const toggleMenu = () => setMenuOpen(prev => !prev);
-
+  // Gère le redimensionnement de la fenêtre
   useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
@@ -29,6 +29,11 @@ const Navbar = () => {
   ];
 
   const isAccueilActive = location.pathname === '/' || location.pathname === '/home';
+
+  const handleLogoClick = () => {
+    setMenuOpen(false);
+    navigate('/home');
+  };
 
   return (
     <>
@@ -65,12 +70,18 @@ const Navbar = () => {
       {isMobile && (
         <>
           <div className="mobile-header">
-            <img src={logo} alt="Logo mobile" className="logo-mobile-centered" />
+            <img
+              src={logo}
+              alt="Logo mobile"
+              className="logo-mobile-centered"
+              onClick={handleLogoClick}
+              style={{ cursor: 'pointer' }}
+            />
           </div>
 
           <button
             className={`elegant-toggle ${menuOpen ? 'open' : ''}`}
-            onClick={toggleMenu}
+            onClick={() => setMenuOpen(prev => !prev)}
             aria-label="Menu"
           >
             <div className="hamburger-lines">

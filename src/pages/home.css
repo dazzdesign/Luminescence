@@ -54,32 +54,6 @@ html, body {
   margin-top: 233px;
   max-width: 900px;
   padding: 1rem;
-  text-align: center;
-}
-
-
-
-
-/* ------------------ TITRES & TEXTES ------------------ */
-h1, h2, h3 {
-  font-size: 30px;
-  background: radial-gradient(circle at 50% 40%, #FFF5B0, #FFD700 40%, #FFC000 70%, #B8860B);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.247);
-  margin: 20px auto;
-  padding: 0 20px;
-  text-align: center;
-}
-
-p {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  max-width: 800px;
-  margin: 10px auto;
-  padding: 0 20px;
-  text-align: justify;
 }
 
 /* ------------------ BOUTONS ------------------ */
@@ -87,23 +61,34 @@ p {
 .bouton-outline {
   padding: 12px 24px;
   font-size: 1rem;
-  font-weight: bold;
   border-radius: 9999px;
   cursor: pointer;
   transition: 0.3s ease;
   box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
   margin: 10px 0;
   text-transform: uppercase;
-  font-family: 'Poppins'!important, sans-serif;
+  font-family: 'Poppins', sans-serif;
   letter-spacing: 0.05em;
+    align-items: center;
+
 }
 
 .bouton {
+  display: inline-flex; /* nécessaire pour centrer les icônes et le texte */
+  align-items: center;
+  justify-content: center;
+  gap: 8px; /* espace entre texte et icône */
+  padding: 12px 24px;
+  margin: 20px auto; /* centre le bouton lui-même horizontalement */
   background: radial-gradient(circle at 50% 40%, #FFF5B0, #FFD700 40%, #FFC000 75%, #B8860B);
   border: none;
   color: #000;
   font-weight: 700;
+  border-radius: 6px;
+  cursor: pointer;
+  text-align: center;
 }
+
 
 .bouton:hover,
 .bouton:focus,
@@ -121,42 +106,20 @@ p {
 /* ------------------ INFOS ENTREPRISE ------------------ */
 .luminescence-info {
   padding: 5rem 1rem;
-  text-align: center;
   max-width: 1200px;
   margin: auto;
 }
 
-.luminescence-info .section-title {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: #1f2937;
-  margin-bottom: 3rem;
-}
-
 .section-title .gold,
 .text-yellow-500 {
-  color: #FBBF24;
   transition: color 0.3s ease;
 }
 
 .section-title .gold:hover,
 .text-yellow-500:hover {
-  color: #F59E0B;
   text-decoration: underline;
 }
 
-.luminescence-info p {
-  font-size: 1.125rem;
-  color: #fff;
-  max-width: 48rem;
-  margin: 0 auto 3rem;
-  text-align: left;
-  line-height: 1.6;
-  font-weight: 500;
-  letter-spacing: 0.02em;
-}
-
-/* Cards */
 .luminescence-info .grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -172,7 +135,6 @@ p {
   flex-direction: column;
   align-items: center;
   transition: box-shadow 0.3s ease;
-  text-align: center;
 }
 
 .card:hover {
@@ -184,27 +146,12 @@ p {
   margin-bottom: 1rem;
 }
 
-.card-title {
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: #374151;
-  margin-bottom: 0.5rem;
-}
-
-.card-desc {
-  font-size: 1rem;
-  color: #fff;
-  line-height: 1.5;
-}
-
 /* Bouton principal */
 .luminescence-info .btn-primary {
   margin-top: 3rem;
   display: inline-block;
   background-color: #fbbf24;
   color: black;
-  font-weight: 600;
-  font-size: 1.125rem;
   padding: 0.75rem 1.5rem;
   border-radius: 9999px;
   box-shadow: 0 8px 15px rgba(251, 191, 36, 0.3);
@@ -214,4 +161,20 @@ p {
 .luminescence-info .btn-primary:hover {
   background-color: #f59e0b;
   box-shadow: 0 12px 20px rgba(245, 158, 11, 0.4);
+}
+
+.shimmer-gold {
+  font-weight: 600;
+  background: linear-gradient(90deg, #fff2b0, #FFD700, #b88b0b);
+  background-size: 300% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmerGold 4s linear infinite;
+  text-shadow: 0 0 6px rgba(255, 215, 0, 0.2);
+}
+
+@keyframes shimmerGold {
+  0% { background-position: 0% center; }
+  50% { background-position: 100% center; }
+  100% { background-position: 0% center; }
 }

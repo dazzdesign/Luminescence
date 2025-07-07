@@ -44,7 +44,70 @@
   pointer-events: none;
 }
 
-/* ======== BLOC SOCIAL ======== */
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.hero-image-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  position: relative;
+  z-index: 1;
+}
+
+/* Dégradé haut */
+.hero-gradient-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 20%;
+  background: linear-gradient(to bottom, #000 0%, rgba(0, 0, 0, 0) 100%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Dégradé bas */
+.hero-gradient-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 30%;
+  background: linear-gradient(to top, #000 0%, rgba(0, 0, 0, 0) 100%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+
+
+.hero-chevron-wrapper {
+  position: absolute;
+  bottom: 100px; /* ajuste la distance du bas */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  pointer-events: none; /* Pour ne pas bloquer les clics */
+}
+
+
+
+
 
 /* ======== SOCIAL BANNER avec logos dorés ======== */
 .social-banner {

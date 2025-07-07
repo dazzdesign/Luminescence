@@ -1,10 +1,67 @@
 /* App.css */
 body {
-  font-family: 'Poppins', sans-serif!important;
-  font-weight: bold;
-  font-size: 17px;
-  background-color:#000000; /* fond noir */
-  margin: 0;
-  padding: 0;
   overflow: hidden; /* pour éviter les scroll liés au canvas */
+}
+
+
+/* ------------------ TITRES & TEXTES ------------------ */
+h1, h2, h3 {
+  font-family: 'Poppins'!important, sans-serif;
+  background: radial-gradient(circle at 50% 40%, #FFF5B0, #FFD700 40%, #FFC000 70%, #B8860B);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.25);
+  margin: 20px auto;
+  padding: 0 20px;
+  text-align: center;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+/* Taille adaptable */
+h1 {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+}
+
+h2 {
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+}
+
+h3 {
+  font-size: clamp(1.5rem, 3.5vw, 2.2rem);
+}
+
+p {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 10px auto 20px;
+  padding: 0 20px;
+  text-align: center!important;
+  color: #f5f5f5;
+}
+
+/* Adaptation très petits écrans */
+@media (max-width: 480px) {
+  h1, h2, h3 {
+    text-align: center;
+    padding: 0 10px;
+  }
+
+  p {
+    padding: 0 12px;
+  }
+}
+.grecaptcha-badge {
+    bottom: 100px !important;
+  transform: scale(0.8);
+  transition: opacity 0.3s ease;
+}
+
+.grecaptcha-badge:hover {
+  opacity: 1;
+  filter: none;
+
 }

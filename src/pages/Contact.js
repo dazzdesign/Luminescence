@@ -16,10 +16,20 @@ const Contact = () => {
     phone: '',
     message: '',
   });
+
   const [successMessage, setSuccessMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
 
   useEffect(() => {
     window.scrollTo(0, 0);
+
+    if (window.grecaptcha && process.env.REACT_APP_RECAPTCHA_SITE_KEY) {
+      window.grecaptcha.ready(() => {
+        console.log('✅ reCAPTCHA prêt');
+      });
+    } else {
+      console.error("❌ reCAPTCHA non chargé. Vérifie que le script est bien présent dans public/index.html");
+    }
   }, []);
 
   const handleChange = (e) => {
@@ -27,19 +37,36 @@ const Contact = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    
-    emailjs.send('service_camhlpp', 'template_giqz67p', formData, '9xVMw8Nc_snDpmRjR')
-      .then((response) => {
-        console.log('Email sent successfully', response);
-        setSuccessMessage('Votre message a été envoyé avec succès !');
-        setFormData({ name: '', email: '', phone: '', message: '' });
-      })
-      .catch((err) => {
-        console.error('Failed to send email', err);
-        setSuccessMessage('Échec de l\'envoi du message. Veuillez réessayer.');
-      });
+
+    const serviceID = process.env.REACT_APP_EMAILJS_SERVICE_ID;
+    const templateID = process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
+    const userID = process.env.REACT_APP_EMAILJS_USER_ID;
+    const recaptchaKey = process.env.REACT_APP_RECAPTCHA_SITE_KEY;
+
+    try {
+      if (!window.grecaptcha || !recaptchaKey) {
+        throw new Error("reCAPTCHA non disponible");
+      }
+
+      const token = await window.grecaptcha.execute(recaptchaKey, { action: 'submit' });
+
+      const fullForm = {
+        ...formData,
+        'g-recaptcha-response': token,
+      };
+
+      await emailjs.send(serviceID, templateID, fullForm, userID);
+
+      setSuccessMessage('✅ Votre message a été envoyé avec succès !');
+      setErrorMessage('');
+      setFormData({ name: '', email: '', phone: '', message: '' });
+    } catch (error) {
+      console.error('Erreur EmailJS ou reCAPTCHA :', error);
+      setSuccessMessage('');
+      setErrorMessage("❌ Échec de l'envoi du message. Veuillez réessayer.");
+    }
   };
 
   return (
@@ -50,42 +77,43 @@ const Contact = () => {
           Pour une information ou un devis, veuillez remplir le formulaire ci-dessous
           ou nous contacter par téléphone.
         </p>
-        <button className="bouton" onClick={handleContact}>
+
+        <button className="bouton bouton-tel" onClick={handleContact}>
           Nous contacter par téléphone <FontAwesomeIcon icon={faPhoneAlt} />
         </button>
       </header>
 
       <form className="contact-form" onSubmit={handleSubmit}>
-        <input 
-          type="text" 
-          name="name" 
-          placeholder="Nom" 
-          className="contact-input" 
+        <input
+          type="text"
+          name="name"
+          placeholder="Nom"
+          className="contact-input"
           value={formData.name}
           onChange={handleChange}
           required
         />
-        <input 
-          type="email" 
-          name="email" 
-          placeholder="Mail" 
-          className="contact-input" 
+        <input
+          type="email"
+          name="email"
+          placeholder="Mail"
+          className="contact-input"
           value={formData.email}
           onChange={handleChange}
           required
         />
-        <input 
-          type="tel" 
-          name="phone" 
-          placeholder="Numéro de téléphone" 
-          className="contact-input" 
+        <input
+          type="tel"
+          name="phone"
+          placeholder="Numéro de téléphone"
+          className="contact-input"
           value={formData.phone}
           onChange={handleChange}
           required
         />
-        <textarea 
-          name="message" 
-          placeholder="Message" 
+        <textarea
+          name="message"
+          placeholder="Message"
           className="contact-textarea"
           value={formData.message}
           onChange={handleChange}
@@ -95,6 +123,7 @@ const Contact = () => {
       </form>
 
       {successMessage && <p className="contact-thankyou">{successMessage}</p>}
+      {errorMessage && <p className="contact-error">{errorMessage}</p>}
 
       <div className="contact-info">
         <p>Denis Dussert</p>

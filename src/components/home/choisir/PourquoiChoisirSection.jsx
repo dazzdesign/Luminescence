@@ -21,7 +21,7 @@ const items = [
       </svg>
     ),
     title: 'Applications Multiples',
-    desc: 'Adapté aux piscines, salles de bain, terrasses et environnements commerciaux prestigieux.',
+    desc: 'Adapté aux piscines, salles de bain, terrasses et zones commerciales.',
   },
   {
     icon: (

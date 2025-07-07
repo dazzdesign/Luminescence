@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import './home.css';
 
 // Sections principales
@@ -10,11 +10,9 @@ import PourquoiChoisirSection from '../components/home/choisir/PourquoiChoisirSe
 import VoirRealisationsSection from '../components/home/realisations/VoirRealisationsSection';
 
 const Home = () => {
-  const [scrollY, setScrollY] = useState(0);
-
+  // Apparition douce des sections avec la classe "fade-section"
   useEffect(() => {
     const handleScroll = () => {
-      setScrollY(window.scrollY);
       document.querySelectorAll('.fade-section').forEach((section) => {
         const rect = section.getBoundingClientRect();
         if (rect.top < window.innerHeight * 0.85) {
@@ -24,28 +22,56 @@ const Home = () => {
     };
 
     window.addEventListener('scroll', handleScroll);
-    handleScroll();
+    handleScroll(); // Appel initial
 
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
     <div className="home-container">
+      {/* HERO */}
       <HeroSection />
-        <div className="hero-text">
-    <h1>Carrelage Lumineux - Fibre Optique Multisurface</h1>
-    <p>
-      Bienvenue sur notre site, où l'artisanat rencontre la technologie.
-      Fondée par Denis Dussert à Manosque, <strong>LUMINESCENCE CARRELAGE</strong> marie
-      fibre optique et carrelage avec 30 ans de savoir-faire.
-    </p>
-  </div>
 
+      {/* Introduction de la marque */}
+      <section className="hero-text fade-section">
+        <h1>Carrelage Lumineux</h1>
+        <h2>Fibre Optique Multisurface</h2>
+
+        <p>
+                    <h4 className="shimmer-gold">Avec 30 ans de savoir-faire.</h4>
+<br />
+          Bienvenue sur notre site, où l'artisanat rencontre la technologie.
+          <br /><br />
+          Fondée par Denis Dussert à Manosque, <strong>LUMINESCENCE CARRELAGE</strong> marie
+          fibre optique et carrelage.
+        </p>
+
+
+        
+      </section>
+
+
+
+      {/* Slider explicatif */}
       <HowItWorksSlider />
+
+      {/* Section technologie (avec animations internes) */}
       <TechnologieSection />
+
+      {/* Pourquoi choisir nous */}
       <PourquoiChoisirSection />
+      {/* Réalisations */}
       <VoirRealisationsSection />
+    
+
+    
+
+    
+    
+    
+    
     </div>
+    
   );
 };
 
