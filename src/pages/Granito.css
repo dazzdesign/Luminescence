@@ -17,3 +17,14 @@
   margin-bottom: 1.5rem;
 }
 
+.granito-video-wrapper {
+  margin: 2rem 0;
+  display: flex;
+  justify-content: center;
+}
+
+.granito-video {
+  width: 100%;
+  max-width: 800px;
+  border-radius: 16px;
+}

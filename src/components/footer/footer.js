@@ -76,15 +76,56 @@ const Footer = () => {
 
         {/* Bloc Navigation */}
         <nav className="footer-menu" aria-label="Footer navigation">
-          <ul>
-            <li><NavLink to="/home" className={({ isActive }) => isActive || currentPath === '/' ? "footer-link active" : "footer-link"}>Accueil</NavLink></li>
-            <li><NavLink to="/about" className="footer-link">Luminescence Carrelage</NavLink></li>
-            <li><NavLink to="/services" className="footer-link">Expert Carrelage / Fibre Optique</NavLink></li>
-            <li><NavLink to="/realisations" className="footer-link">Granito</NavLink></li>
-            <li><NavLink to="/contact" className="footer-link">Réalisations</NavLink></li>
-            <li><NavLink to="/contact" className="footer-link">Contact</NavLink></li>
-          </ul>
+<ul>
+  <li>
+    <NavLink
+      to="/home"
+      className={({ isActive }) =>
+        isActive || currentPath === '/' ? 'footer-link active' : 'footer-link'
+      }
+    >
+      Accueil
+    </NavLink>
+  </li>
+  <li>
+    <NavLink to="/about" className="footer-link">
+      Luminescence Carrelage
+    </NavLink>
+  </li>
+  <li>
+    <NavLink to="/services" className="footer-link">
+      Expert Carrelage / Fibre Optique
+    </NavLink>
+  </li>
+  <li>
+    <NavLink to="/granito" className="footer-link">
+      Granito
+    </NavLink>
+  </li>
+  <li>
+    <NavLink to="/realisations" className="footer-link">
+      Réalisations
+    </NavLink>
+  </li>
+  <li>
+    <NavLink to="/contact" className="footer-link">
+      Contact
+    </NavLink>
+  </li>
+</ul>
+
         </nav>
+
+
+
+
+
+
+
+
+
+
+
 
         {/* Bloc Contact */}
         <div className="footer-contact">

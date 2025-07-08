@@ -2,6 +2,7 @@
 .navbar-desktop {
   font-family: 'Poppins', sans-serif !important;
   display: flex;
+  font-size: 10px!important;
   justify-content: space-between;
   align-items: center;
   padding: 14px 40px;
@@ -40,7 +41,7 @@
 .navbar-links a {
   text-decoration: none;
   color: white;
-  font-size: 15px;
+  font-size: 10px;
   font-weight: 500;
   transition: all 0.3s ease;
   position: relative;
@@ -225,11 +226,6 @@
 }
 
 
-
-
-
-
-
 /* ✨ Animation pulsée */
 @keyframes flashGlow {
   0% {
@@ -265,7 +261,7 @@
 }
 
 /* ❌ Cache le menu mobile sur desktop */
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   .mobile-header,
   .elegant-toggle,
   .luxury-menu {

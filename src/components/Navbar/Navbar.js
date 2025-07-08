@@ -5,14 +5,14 @@ import logo from '../../img/logoBarnav.png';
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 992);
   const location = useLocation();
   const navigate = useNavigate();
 
   // Gère le redimensionnement de la fenêtre
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
+      setIsMobile(window.innerWidth < 992);
     };
 
     window.addEventListener('resize', handleResize);
@@ -21,8 +21,8 @@ const Navbar = () => {
 
   const navLinks = [
     { to: '/home', label: 'Accueil' },
-    { to: '/about', label: 'À propos' },
-    { to: '/services', label: 'Expertise' },
+    { to: '/about', label: 'Luminescence Carrelage' },
+    { to: '/services', label: 'Expert carrelage / Fibre optique' },
     { to: '/granito', label: 'Granito' },
     { to: '/realisations', label: 'Réalisations' },
     { to: '/contact', label: 'Contact' },

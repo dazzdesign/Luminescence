@@ -3,7 +3,7 @@ import Zoom from 'react-medium-image-zoom';
 import 'react-medium-image-zoom/dist/styles.css';
 import './realisation.css';
 
-const images = Array.from({ length: 19 }, (_, i) => ({
+const images = Array.from({ length: 17 }, (_, i) => ({
   src: require(`../img/chantiers/img (${i + 1}).jpeg`),
   titre: `Projet ${i + 1}`
 }));

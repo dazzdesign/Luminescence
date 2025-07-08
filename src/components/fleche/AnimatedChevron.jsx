@@ -1,9 +1,19 @@
 import React from 'react';
 import './AnimatedChevron.css';
 
-const AnimatedChevron = () => {
+const rotationMap = {
+  down: '0deg',
+  left: '-90deg',
+  right: '90deg',
+  up: '180deg'
+};
+
+const AnimatedChevron = ({ direction = 'down' }) => {
   return (
-    <div>
+    <div
+      className="chevron-wrapper"
+      style={{ transform: `rotate(${rotationMap[direction]})` }}
+    >
       <svg className="modern-arrow" viewBox="0 0 24 80" width="160" height="200">
         <defs>
           <linearGradient id="animated-gradient" x1="0%" y1="0%" x2="0%" y2="100%">

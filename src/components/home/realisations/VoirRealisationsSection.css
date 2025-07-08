@@ -48,6 +48,28 @@
   margin-bottom: 2rem;
 }
 
+.realisations-video {
+  width: 100%;
+  height: auto;
+  max-height: 540px;
+  border-radius: 16px;
+  object-fit: cover;
+  display: block;
+}
+
+
+/* Responsive mobile */
+@media (max-width: 768px) {
+  .realisations-video {
+    max-height: 320px;
+  }
+}
+
+
+
+
+
+
 .bouton {
   font-size: 1rem;
   padding: 12px 28px;
