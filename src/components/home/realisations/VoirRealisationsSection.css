@@ -112,3 +112,19 @@
     padding: 10px 24px;
   }
 }
+
+
+
+.video-wrapper {
+  width: 100%;
+  max-height: 540px;
+  margin-bottom: 2rem;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+}
+@media (max-width: 768px) {
+  .video-wrapper {
+    max-height: 320px;
+  }
+}

@@ -83,3 +83,21 @@
     font-size: 1rem;
   }
 }
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.bottom-image-container {
+  margin-top: 50px;
+  text-align: center;
+}
+
+.hero-image {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+}
