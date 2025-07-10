@@ -13,7 +13,7 @@ const About = () => {
 
   return (
     <div className="about-container">
-      <h1>Luminescence Carrelage : spécialiste carrelage & fibre optique</h1>
+      <h1>Luminescence Carrelage :<br/> spécialiste carrelage & fibre optique</h1>
 
       <div className="content">
         <div className="hexagon-container">
