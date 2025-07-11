@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import './services.css';
-import img3 from './img/fibres.png';
 
 const Services = () => {
   useEffect(() => {

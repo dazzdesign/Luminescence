@@ -1,35 +1,59 @@
 .home-realisations {
+  position: relative;
   padding: 5rem 1rem;
   display: flex;
   justify-content: center;
+  background-image: url('./fibres.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.home-realisations::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45); /* pour lisibilité */
+  z-index: 1;
 }
 
 .realisations-container {
+  position: relative;
+  z-index: 2;
   width: 100%;
   max-width: 900px;
-  border-radius: 16px;
-  overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.realisations-image {
+.video-wrapper {
   width: 100%;
   max-height: 540px;
-  object-fit: cover;
-  object-position: center;
-  filter: brightness(0.6);
+  margin-bottom: 2rem;
   border-radius: 16px;
-  display: block;
+  overflow: hidden;
+  position: relative;
 }
 
-/* ✅ Texte sous l'image, centré et lisible */
-.realisations-content {
-  text-align: center;
-  color: white;
-  padding: 2.5rem 1.5rem 0;
+@media (max-width: 768px) {
+  .video-wrapper {
+    max-height: 320px;
+  }
+}
+
+/* ✅ Bloc texte dans un fond sombre arrondi */
+.realisations-content-wrapper {
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  border-radius: 16px;
+  padding: 2.5rem 2rem;
   max-width: 720px;
+  width: 100%;
+  text-align: center;
+  margin-top: 1rem;
+  box-shadow: 0 0 14px rgba(0, 0, 0, 0.25);
 }
 
 .realisations-title {
@@ -45,30 +69,9 @@
 .realisations-text {
   font-size: 1.05rem;
   line-height: 1.65;
+  color: #eaeaea;
   margin-bottom: 2rem;
 }
-
-.realisations-video {
-  width: 100%;
-  height: auto;
-  max-height: 540px;
-  border-radius: 16px;
-  object-fit: cover;
-  display: block;
-}
-
-
-/* Responsive mobile */
-@media (max-width: 768px) {
-  .realisations-video {
-    max-height: 320px;
-  }
-}
-
-
-
-
-
 
 .bouton {
   font-size: 1rem;
@@ -88,17 +91,8 @@
   box-shadow: 0 0 24px rgba(255, 215, 0, 0.7);
 }
 
-/* 📱 Responsive Mobile */
+/* 📱 Responsive */
 @media (max-width: 768px) {
-  .realisations-image {
-    max-height: 320px;
-    filter: brightness(0.55);
-  }
-
-  .realisations-content {
-    padding: 2rem 1rem 0;
-  }
-
   .realisations-title {
     font-size: 1.6rem;
   }
@@ -111,20 +105,8 @@
     font-size: 0.95rem;
     padding: 10px 24px;
   }
-}
 
-
-
-.video-wrapper {
-  width: 100%;
-  max-height: 540px;
-  margin-bottom: 2rem;
-  border-radius: 16px;
-  overflow: hidden;
-  position: relative;
-}
-@media (max-width: 768px) {
-  .video-wrapper {
-    max-height: 320px;
+  .realisations-content-wrapper {
+    padding: 2rem 1.2rem;
   }
 }

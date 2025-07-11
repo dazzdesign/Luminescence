@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './VoirRealisationsSection.css';
+import fibresBg from './fibres.png';
 
 const VoirRealisationsSection = () => {
   const navigate = useNavigate();
@@ -27,14 +28,21 @@ const VoirRealisationsSection = () => {
   }, []);
 
   return (
-    <section className="home-realisations">
+    <section
+      className="home-realisations"
+      style={{
+        backgroundImage: `url(${fibresBg})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+      }}
+    >
       <div className="realisations-container">
-        
-        {/* Vidéo via Cloudflare Stream */}
+        {/* ✅ Vidéo Cloudflare */}
         <div className="video-wrapper">
           <div style={{ position: 'relative', paddingTop: '56.25%', width: '100%' }}>
             <iframe
-src="https://iframe.videodelivery.net/10ea69dcb9aef0eef8b1d0d2ab05dec9"
+              src="https://iframe.videodelivery.net/10ea69dcb9aef0eef8b1d0d2ab05dec9"
               title="Vidéo Réalisation"
               loading="lazy"
               allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture"
@@ -51,20 +59,21 @@ src="https://iframe.videodelivery.net/10ea69dcb9aef0eef8b1d0d2ab05dec9"
           </div>
         </div>
 
-        {/* Contenu texte animé */}
-        <div className="realisations-content" ref={contentRef}>
-          <h2 className="realisations-title">
-            Lumière & design jusque dans les moindres détails
-          </h2>
-          <p className="realisations-text">
-            Plongez dans l’univers de nos réalisations lumineuses uniques.
-            Une mise en scène élégante, raffinée et sur-mesure.
-          </p>
-          <button className="bouton" onClick={() => navigate('/realisations')}>
-            Voir la galerie complète
-          </button>
+        {/* ✅ Texte dans une carte floutée */}
+        <div className="realisations-content-wrapper">
+          <div className="realisations-content fade-section" ref={contentRef}>
+            <h2 className="realisations-title">
+              Lumière & design jusque dans les moindres détails
+            </h2>
+            <p className="realisations-text">
+              Plongez dans l’univers de nos réalisations lumineuses uniques.
+              Une mise en scène élégante, raffinée et sur-mesure.
+            </p>
+            <button className="bouton" onClick={() => navigate('/realisations')}>
+              Voir la galerie complète
+            </button>
+          </div>
         </div>
-
       </div>
     </section>
   );
