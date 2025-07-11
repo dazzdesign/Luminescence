@@ -33,22 +33,20 @@ const Home = () => {
       <HeroSection />
 
       {/* Introduction de la marque */}
-      <section className="hero-text fade-section">
-        <h1>Carrelage Lumineux</h1>
-        <h2>Fibre Optique Multisurface</h2>
+<section className="hero-text fade-section">
+  <h1>Carrelage Lumineux</h1>
+  <h2>Fibre Optique Multisurface</h2>
 
-        <p>
-                    <h4 className="shimmer-gold">Avec 30 ans de savoir-faire.</h4>
-<br />
-          Bienvenue sur notre site, où l'artisanat rencontre la technologie.
-          <br /><br />
-          Fondée par Denis Dussert à Manosque, <strong>LUMINESCENCE CARRELAGE</strong> marie
-          fibre optique et carrelage.
-        </p>
+  <p>
+    <h4 className="highlight-led">Avec 30 ans de savoir-faire.</h4>
+    <br />
+    Bienvenue sur notre site, où <span className="highlight-led">l'artisanat</span> rencontre <span className="highlight-led">la technologie</span>.
+    <br /><br />
+    Fondée par Denis Dussert à Manosque, <strong className="highlight-led">LUMINESCENCE CARRELAGE</strong> marie
+    <span className="highlight-led"> fibre optique</span> et <span className="highlight-led">carrelage</span>.
+  </p>
+</section>
 
-
-        
-      </section>
 
 
 
