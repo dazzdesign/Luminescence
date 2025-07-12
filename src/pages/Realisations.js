@@ -4,7 +4,7 @@ import 'react-medium-image-zoom/dist/styles.css';
 import './realisation.css';
 
 const images = Array.from({ length: 17 }, (_, i) => ({
-  src: require(`../img/chantiers/img (${i + 1}).jpeg`),
+  src: require(`../img/chantiers/img (${i + 1}).jpg`),
   titre: `Projet ${i + 1}`,
 }));
 

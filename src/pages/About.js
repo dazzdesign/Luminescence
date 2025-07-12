@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './about.css'; 
 import hexImage from '../img/apropos.png'; 
-import parement from '../img/home/procarre.png';
+import parement from '../img/home/procarre.jpg';
 
 const About = () => {
   const navigate = useNavigate();

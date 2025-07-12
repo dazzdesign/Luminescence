@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, EffectFade } from 'swiper/modules';
 
-import img1 from './img/1.png';
-import img2 from './img/2.png';
-import img3 from './img/3.png';
+import img1 from './img/1.jpg';
+import img2 from './img/2.jpg';
+import img3 from './img/3.jpg';
 
 import 'swiper/css';
 import 'swiper/css/effect-fade';

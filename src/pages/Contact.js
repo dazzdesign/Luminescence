@@ -23,13 +23,27 @@ const Contact = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
 
-    if (window.grecaptcha && process.env.REACT_APP_RECAPTCHA_SITE_KEY) {
-      window.grecaptcha.ready(() => {
-        console.log('✅ reCAPTCHA prêt');
-      });
-    } else {
-      console.error("❌ reCAPTCHA non chargé. Vérifie que le script est bien présent dans public/index.html");
-    }
+    const loadRecaptchaScript = async () => {
+      const recaptchaKey = process.env.REACT_APP_RECAPTCHA_SITE_KEY;
+
+      if (!recaptchaKey) {
+        console.error("❌ Clé reCAPTCHA manquante dans .env");
+        return;
+      }
+
+      if (!window.grecaptcha) {
+        const script = document.createElement('script');
+        script.src = `https://www.google.com/recaptcha/api.js?render=${recaptchaKey}`;
+        script.async = true;
+        script.defer = true;
+        script.onload = () => console.log("✅ reCAPTCHA chargé");
+        document.body.appendChild(script);
+      } else {
+        console.log("✅ reCAPTCHA déjà chargé");
+      }
+    };
+
+    loadRecaptchaScript();
   }, []);
 
   const handleChange = (e) => {

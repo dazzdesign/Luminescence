@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './VoirRealisationsSection.css';
-import fibresBg from './fibres.png';
+import fibresBg from './fibres.jpg';
 
 const VoirRealisationsSection = () => {
   const navigate = useNavigate();
