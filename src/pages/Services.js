@@ -31,7 +31,6 @@ const Services = () => {
         Nous réalisons tous types de projets, en France et à l’étranger, avec la même exigence de qualité. Accessible à de nombreux budgets, la fibre optique s’adapte à tous les rêves.
       </p>
 
-      {/* ✅ Intégration de la vidéo Cloudflare */}
       <div className="video-wrapper">
         <iframe
           src="https://customer-xqcdu670n9dp9ds1.cloudflarestream.com/14218f1a9dc0cd83796502615a1bc598/iframe?autoplay=1&muted=1"

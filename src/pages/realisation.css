@@ -38,7 +38,6 @@
   aspect-ratio: 16 / 9;
 }
 
-/* === Flèches Desktop === */
 .gallery-image-container .nav-arrow {
   position: absolute;
   top: 50%;
@@ -69,7 +68,6 @@
   color: #f5a623;
 }
 
-/* === Image === */
 .gallery-image {
   position: absolute;
   top: 50%;
@@ -83,7 +81,6 @@
   cursor: zoom-in;
 }
 
-/* === Miniatures (espacées) === */
 .gallery-thumbnails-wrapper {
   margin-top: 50px;
   border-top: 1px solid #eee;
@@ -121,12 +118,10 @@
   box-shadow: 0 0 12px rgba(245, 166, 35, 0.5);
 }
 
-/* === Flèches mobile (masquées en desktop par défaut) === */
 .nav-arrow-container {
   display: none;
 }
 
-/* === Responsive Mobile === */
 @media (max-width: 768px) {
   .gallery-image-container {
     aspect-ratio: auto;
@@ -142,12 +137,10 @@
     border-radius: 12px;
   }
 
-  /* Masquer les flèches desktop */
   .gallery-image-container .nav-arrow {
     display: none;
   }
 
-  /* Afficher et styliser les flèches mobile */
   .nav-arrow-container {
     display: flex;
     justify-content: center;
@@ -173,7 +166,6 @@
     color: #f5a623;
   }
 
-  /* Miniatures scrollables */
   .gallery-thumbnails {
     display: flex;
     overflow-x: auto;

@@ -1,8 +1,8 @@
 {
-  "name": "artisan-webapp-template",
+  "name": "Luminescence Carrelage",
   "version": "0.1.0",
   "private": true,
-  "description": "Template React générique pour sites web d'artisans (carreleurs, plombiers, électriciens, etc.)",
+  "description": "Luminescence Carrelage",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.5.2",
     "@fortawesome/fontawesome-svg-core": "^6.5.2",

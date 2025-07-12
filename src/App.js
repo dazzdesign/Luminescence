@@ -13,7 +13,7 @@ import Granito from './pages/Granito';
 import Realisations from './pages/Realisations';
 import Contact from './pages/Contact';
 
-import Starfield from './components/background/Starfield'; // chemin selon ta structure
+import Starfield from './components/background/Starfield'; 
 
 function App() {
   return (

@@ -15,8 +15,8 @@
   transform: scale(0.5) translateY(-10px);
   transform-origin: center;
   animation: chevronAppear 0.6s ease-out forwards;
-  fill: none; /* <<< empêche les flèches d’être pleines */
-  stroke: url(#animated-gradient); /* <<< coloré par dégradé animé */
+  fill: none; 
+  stroke: url(#animated-gradient); 
   stroke-linecap: round;
   stroke-linejoin: round;
   filter: drop-shadow(0 0 4px #fff3b0);

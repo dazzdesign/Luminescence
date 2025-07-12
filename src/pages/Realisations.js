@@ -37,7 +37,6 @@ const Realisation = () => {
             />
           </Zoom>
 
-          {/* Flèches desktop : intégrées au container pour meilleur positionnement */}
           <button
             className="nav-arrow nav-left desktop-only"
             onClick={goPrevious}
@@ -54,7 +53,6 @@ const Realisation = () => {
           </button>
         </div>
 
-        {/* Flèches mobile : en dessous */}
         <div className="nav-arrow-container mobile-only">
           <button className="nav-arrow" onClick={goPrevious} aria-label="Image précédente">
             &#10094;
@@ -65,7 +63,6 @@ const Realisation = () => {
         </div>
       </div>
 
-      {/* Miniatures encadrées */}
       <div className="gallery-thumbnails-wrapper">
         <div className="gallery-thumbnails">
           {images.map((img, index) => (

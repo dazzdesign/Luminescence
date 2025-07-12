@@ -47,7 +47,6 @@ const About = () => {
 
       <br />
 
-      {/* Section PROCARRÉ */}
       <div className="procarre-text">
         <h2><span className="gold-highlight">PROCARRÉ et Fils</span></h2>
         <div className="content">

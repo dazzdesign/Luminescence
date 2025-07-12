@@ -14,7 +14,6 @@ const Granito = () => {
         La particularité Fibre & Carro : l'inclusion de lumière fibre optique, le tout sur-mesure et surtout selon vos envies !
       </p>
 
-      {/* ✅ Vidéo Cloudflare Stream */}
       <div className="granito-video-wrapper" style={{ position: 'relative', paddingTop: '56.25%', width: '100%' }}>
         <iframe
           src="https://customer-xqcdu670n9dp9ds1.cloudflarestream.com/f10f12f802bef4d64badfc7f4ff8e5c8/iframe?autoplay=1&muted=1"

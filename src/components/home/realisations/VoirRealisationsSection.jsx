@@ -38,7 +38,6 @@ const VoirRealisationsSection = () => {
       }}
     >
       <div className="realisations-container">
-        {/* ✅ Vidéo Cloudflare */}
         <div className="video-wrapper">
           <div style={{ position: 'relative', paddingTop: '56.25%', width: '100%' }}>
             <iframe
@@ -59,7 +58,6 @@ const VoirRealisationsSection = () => {
           </div>
         </div>
 
-        {/* ✅ Texte dans une carte floutée */}
         <div className="realisations-content-wrapper">
           <div className="realisations-content fade-section" ref={contentRef}>
             <h2 className="realisations-title">

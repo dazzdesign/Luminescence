@@ -9,7 +9,6 @@
   color: #eaeaea;
 }
 
-/* ✨ Titre avec soulignement subtil doré */
 .how-title {
   font-size: 2.2rem;
   color: #ffffff;
@@ -28,7 +27,6 @@
   opacity: 0.6;
 }
 
-/* 📄 Description élégante */
 .how-description {
   max-width: 700px;
   margin: 0 auto;
@@ -37,7 +35,6 @@
   padding: 0 8px;
 }
 
-/* Illustrations centrées avec espacement */
 .icon-illustration {
   display: flex;
   flex-direction: column;
@@ -45,7 +42,6 @@
   gap: 2.8rem;
 }
 
-/* SVG position */
 .led-generator,
 .remote-small-icon {
   display: block;
@@ -58,7 +54,6 @@
   margin: 0 auto;
 }
 
-/* Apparition douce */
 .fade-section {
   opacity: 0;
   transform: translateY(30px);

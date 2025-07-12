@@ -6,7 +6,6 @@ import AnimatedChevron from '../../fleche/AnimatedChevron';
 const HeroSection = () => {
   return (
     <>
-      {/* Dégradé animé global */}
       <svg width="0" height="0">
         <defs>
           <linearGradient id="animated-gold-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -25,12 +24,10 @@ const HeroSection = () => {
 
       <header className="hero-section">
         <div className="hero-image-container">
-          {/* Flèche centrale (mobile only) */}
           <div className="hero-chevron-wrapper">
             <AnimatedChevron />
           </div>
 
-          {/* Flèches latérales (desktop only) */}
 <div className="hero-chevron-sides">
   <div className="chevron-left">
     <AnimatedChevron />
@@ -48,7 +45,6 @@ const HeroSection = () => {
         </div>
       </header>
 
-      {/* Réseaux sociaux */}
       <div className="social-banner">
         <div className="social-icons">
           <a href="https://www.facebook.com/fibreetcarro/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">

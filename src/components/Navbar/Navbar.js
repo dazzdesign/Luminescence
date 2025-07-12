@@ -37,7 +37,6 @@ const Navbar = () => {
 
   return (
     <>
-      {/* ======= 🌐 DESKTOP NAVBAR ======= */}
       {!isMobile && (
         <nav className="navbar-desktop">
           <div className="navbar-logo">
@@ -66,7 +65,6 @@ const Navbar = () => {
         </nav>
       )}
 
-      {/* ======= 📱 MOBILE HEADER ======= */}
       {isMobile && (
         <>
           <div className="mobile-header">

@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import './home.css';
 
-// Sections principales
 import HeroSection from '../components/home/hero/HeroSection';
 import AnimatedChevron from '../components/fleche/AnimatedChevron';
 import HowItWorksSlider from '../components/home/slider/HowItWorksSlider';
@@ -10,7 +9,6 @@ import PourquoiChoisirSection from '../components/home/choisir/PourquoiChoisirSe
 import VoirRealisationsSection from '../components/home/realisations/VoirRealisationsSection';
 
 const Home = () => {
-  // Apparition douce des sections avec la classe "fade-section"
   useEffect(() => {
     const handleScroll = () => {
       document.querySelectorAll('.fade-section').forEach((section) => {
@@ -22,17 +20,15 @@ const Home = () => {
     };
 
     window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Appel initial
+    handleScroll(); 
 
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
     <div className="home-container">
-      {/* HERO */}
       <HeroSection />
 
-      {/* Introduction de la marque */}
 <section className="hero-text fade-section">
   <h1>Carrelage Lumineux</h1>
   <h2>Fibre Optique Multisurface</h2>
@@ -46,28 +42,11 @@ const Home = () => {
     <span className="highlight-led"> fibre optique</span> et <span className="highlight-led">carrelage</span>.
   </p>
 </section>
-
-
-
-
-      {/* Slider explicatif */}
       <HowItWorksSlider />
-
-      {/* Section technologie (avec animations internes) */}
       <TechnologieSection />
-
-      {/* Pourquoi choisir nous */}
       <PourquoiChoisirSection />
-      {/* Réalisations */}
       <VoirRealisationsSection />
-    
 
-    
-
-    
-    
-    
-    
     </div>
     
   );

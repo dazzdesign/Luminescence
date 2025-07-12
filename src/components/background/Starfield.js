@@ -24,7 +24,7 @@ const Starfield = () => {
     const resize = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
-      generateStars(); // <-- Important : régénérer les étoiles
+      generateStars(); 
     };
 
     resize();

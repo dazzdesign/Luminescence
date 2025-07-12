@@ -21,10 +21,10 @@
 .slide-container {
   height: 450px;
   width: 100%;
-  background-size: contain; /* 🔁 au lieu de cover */
+  background-size: contain; 
   background-position: center;
   background-repeat: no-repeat;
-  background-color: trsp; /* pour éviter les bandes blanches */
+  background-color: trsp;
   position: relative;
 }
 

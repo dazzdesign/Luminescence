@@ -42,7 +42,6 @@
   }
 }
 
-/* ✅ Bloc texte dans un fond sombre arrondi */
 .realisations-content-wrapper {
   background: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(4px);
@@ -90,7 +89,6 @@
   box-shadow: 0 0 24px rgba(255, 215, 0, 0.7);
 }
 
-/* 📱 Responsive */
 @media (max-width: 768px) {
   .realisations-title {
     font-size: 1.6rem;

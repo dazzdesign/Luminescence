@@ -1,4 +1,3 @@
-/* ======== HERO SECTION ======== */
 
 .hero-section {
   position: relative;
@@ -24,7 +23,6 @@
   position: relative;
 }
 
-/* Dégradé haut */
 .hero-gradient-top {
   position: absolute;
   top: 0;
@@ -36,7 +34,6 @@
   pointer-events: none;
 }
 
-/* Dégradé bas */
 .hero-gradient-bottom {
   position: absolute;
   bottom: 0;
@@ -48,7 +45,6 @@
   pointer-events: none;
 }
 
-/* Flèche centrale (mobile uniquement) */
 .hero-chevron-wrapper {
   position: absolute;
   bottom: 100px;
@@ -64,7 +60,6 @@
   transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
-/* Flèches latérales (desktop uniquement) */
 .hero-chevron-sides {
   position: absolute;
   top:80%;
@@ -87,7 +82,6 @@
   pointer-events: none;
 }
 
-/* Responsive behavior */
 @media (min-width: 1024px) {
   .hero-chevron-wrapper {
     opacity: 0;
@@ -103,7 +97,6 @@
 
 
 
-/* Tablette + mobile : image plein écran */
 @media (max-width: 1424px) {
   .hero-section,
   .hero-image-container,
@@ -121,9 +114,9 @@
 
 .social-banner {
   position: absolute;
-  top: 100px; /* distance depuis le haut */
-  right: 40px; /* ou `left: 50%` et `transform` si tu veux centré */
-  z-index: 20; /* au-dessus de l’image */
+  top: 100px; 
+  right: 40px; 
+  z-index: 20; 
   display: flex;
   justify-content: flex-end;
   gap: 20px;
