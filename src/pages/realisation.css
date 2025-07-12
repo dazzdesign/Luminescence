@@ -35,33 +35,15 @@
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 10px 35px rgba(0, 0, 0, 0.2);
-
-  /* ratio fixe sur desktop */
   aspect-ratio: 16 / 9;
 }
 
-.gallery-image {
+/* === Flèches Desktop === */
+.gallery-image-container .nav-arrow {
   position: absolute;
   top: 50%;
-  left: 50%;
-  height: 100%;
-  width: auto;
-  transform: translate(-50%, -50%);
-  object-fit: cover;
-  transition: opacity 0.3s ease;
-  border-radius: 16px;
-}
-
-.gallery-caption {
-  margin-top: 15px;
-  font-size: 1.2rem;
-  color: #444;
-  font-style: italic;
-}
-
-/* Flèches */
-.nav-arrow {
-  background: rgba(255, 255, 255, 0);
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(6px);
   color: #bdb6b6;
   font-size: 2.5rem;
@@ -72,103 +54,61 @@
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+  z-index: 10;
 }
 
-.nav-arrow:hover {
+.gallery-image-container .nav-left {
+  left: 10px;
+}
+
+.gallery-image-container .nav-right {
+  right: 10px;
+}
+
+.gallery-image-container .nav-arrow:hover {
   color: #f5a623;
 }
 
-/* Position latérale (desktop only) */
-.desktop-only {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+/* === Image === */
+.gallery-image {
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
-  z-index: 5;
+  left: 50%;
+  height: 100%;
+  width: auto;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  transition: opacity 0.3s ease;
+  border-radius: 16px;
+  cursor: zoom-in;
 }
 
-.nav-left {
-  left: 20px;
+/* === Miniatures (espacées) === */
+.gallery-thumbnails-wrapper {
+  margin-top: 50px;
+  border-top: 1px solid #eee;
+  padding-top: 30px;
 }
-
-.nav-right {
-  right: 20px;
-}
-
-/* Flèches dessous (mobile only) */
-.nav-arrow-container {
-  display: none;
-}
-
-.mobile-only {
-  display: none;
-}
-
-/* Responsive - Mobile */
-@media (max-width: 768px) {
-  /* Supprimer aspect-ratio : on laisse l'image s'ajuster naturellement */
-  .gallery-image-container {
-    aspect-ratio: auto;
-    height: auto;
-  }
-
-  /* Adapter l'image portrait pour occuper toute la largeur */
-  .gallery-image {
-    position: static;
-    transform: none;
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-    border-radius: 12px;
-  }
-
-  .desktop-only {
-    display: none;
-  }
-
-  .mobile-only {
-    display: flex;
-  }
-
-  .nav-arrow-container {
-    justify-content: center;
-    gap: 30px;
-    margin-top: 10px;
-  }
-
-  .nav-arrow {
-    width: 50px;
-    height: 50px;
-    font-size: 2rem;
-  }
-
-  .gallery-caption {
-    font-size: 1rem;
-  }
-}
-
 
 .gallery-thumbnails {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 30px;
-  padding: 0 10px;
-  max-width: 100%;
-  overflow-x: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  justify-items: center;
+  gap: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 .thumbnail {
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 100px;
   object-fit: cover;
-  border-radius: 8px;
-  cursor: pointer;
+  border-radius: 12px;
   border: 2px solid transparent;
-  transition: transform 0.2s ease, border-color 0.3s ease;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
 }
 
 .thumbnail:hover {
@@ -178,18 +118,74 @@
 
 .thumbnail.active {
   border-color: #f5a623;
-  box-shadow: 0 0 10px rgba(245, 166, 35, 0.6);
+  box-shadow: 0 0 12px rgba(245, 166, 35, 0.5);
 }
 
+/* === Flèches mobile (masquées en desktop par défaut) === */
+.nav-arrow-container {
+  display: none;
+}
+
+/* === Responsive Mobile === */
 @media (max-width: 768px) {
-  .thumbnail {
-    width: 60px;
-    height: 60px;
+  .gallery-image-container {
+    aspect-ratio: auto;
+    height: auto;
   }
 
+  .gallery-image {
+    position: static;
+    transform: none;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 12px;
+  }
+
+  /* Masquer les flèches desktop */
+  .gallery-image-container .nav-arrow {
+    display: none;
+  }
+
+  /* Afficher et styliser les flèches mobile */
+  .nav-arrow-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 15px;
+  }
+
+  .nav-arrow-container .nav-arrow {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(6px);
+    color: #bdb6b6;
+    font-size: 2rem;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+  }
+
+  .nav-arrow-container .nav-arrow:hover {
+    color: #f5a623;
+  }
+
+  /* Miniatures scrollables */
   .gallery-thumbnails {
-    gap: 8px;
-    margin-top: 20px;
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 12px;
     padding-bottom: 10px;
+  }
+
+  .thumbnail {
+    flex: 0 0 auto;
+    width: 70px;
+    height: 70px;
+    scroll-snap-align: center;
   }
 }
