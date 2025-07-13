@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet';
 import Zoom from 'react-medium-image-zoom';
 import 'react-medium-image-zoom/dist/styles.css';
 import './realisation.css';
@@ -25,6 +26,25 @@ const Realisation = () => {
 
   return (
     <div className="realisation-gallery">
+      <Helmet>
+        <title>Réalisations en carrelage lumineux – Luminescence Carrelage</title>
+        <meta
+          name="description"
+          content="Découvrez nos réalisations en carrelage lumineux avec fibre optique. Projets sur-mesure à Manosque et en Provence, alliant technologie et artisanat."
+        />
+        <meta
+          name="keywords"
+          content="réalisations carrelage lumineux, fibre optique sol, projets Luminescence Carrelage, chantier carrelage Provence"
+        />
+        <meta name="author" content="Denis Dussert" />
+        <meta property="og:title" content="Nos réalisations – Carrelage lumineux avec fibre optique" />
+        <meta property="og:description" content="Inspirez-vous avec nos projets de carrelage lumineux en Provence. Un savoir-faire unique signé Denis Dussert." />
+        <meta property="og:url" content="https://luminescence-carrelage.fr/realisations" />
+        <meta property="og:image" content="https://luminescence-carrelage.fr/logo512.png" />
+        <meta property="og:type" content="website" />
+        <link rel="canonical" href="https://luminescence-carrelage.fr/realisations" />
+      </Helmet>
+
       <h1 className="realisation-title">Nos Réalisations</h1>
 
       <div className="gallery-viewer">

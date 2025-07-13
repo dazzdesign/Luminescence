@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 import './about.css'; 
 import hexImage from '../img/apropos.png'; 
 import parement from '../img/home/procarre.jpg';
@@ -13,6 +14,27 @@ const About = () => {
 
   return (
     <div className="about-container">
+      <Helmet>
+        <title>À propos – Denis Dussert & PROCARRÉ | Luminescence Carrelage</title>
+        <meta
+          name="description"
+          content="Découvrez le parcours de Denis Dussert, fondateur de Luminescence Carrelage à Manosque. Une expertise unique en carrelage lumineux et fibre optique en Provence."
+        />
+        <meta
+          name="keywords"
+          content="Denis Dussert, artisan carrelage Manosque, PROCARRÉ, fibre optique carrelage, entreprise familiale carrelage Provence"
+        />
+        <meta name="author" content="Denis Dussert" />
+
+        {/* Open Graph (réseaux sociaux) */}
+        <meta property="og:title" content="À propos – Denis Dussert & PROCARRÉ | Luminescence Carrelage" />
+        <meta property="og:description" content="Découvrez l'histoire de Luminescence Carrelage et de son fondateur, Denis Dussert, artisan innovant en carrelage lumineux à Manosque." />
+        <meta property="og:url" content="https://luminescence-carrelage.fr/a-propos" />
+        <meta property="og:image" content="https://luminescence-carrelage.fr/logo512.png" />
+        <meta property="og:type" content="website" />
+        <link rel="canonical" href="https://luminescence-carrelage.fr/a-propos" />
+      </Helmet>
+
       <h1>Luminescence Carrelage :<br/> spécialiste carrelage & fibre optique</h1>
 
       <div className="content">

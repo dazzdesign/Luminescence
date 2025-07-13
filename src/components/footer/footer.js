@@ -11,7 +11,6 @@ const Footer = () => {
 
   return (
     <footer className="footer">
-      {/* Dégradé animé SVG pour les icônes */}
       <svg width="0" height="0">
         <defs>
           <linearGradient id="animated-gold-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -33,15 +32,12 @@ const Footer = () => {
 
 
 
-      {/* Introduction */}
       <p className="footer-intro">
         <span className="gold-highlight">Sublimer l’espace</span>, <span className="gold-highlight">révéler la matière</span>, notre passion s’exporte du <span className="gold-highlight">cœur de la Provence</span> jusqu’aux <span className="gold-highlight">projets les plus prestigieux</span> dans le monde.
       </p>
 <br/>
-      {/* Contenu principal */}
       <div className="footer-content">
 
-        {/* Bloc Logo + Réseaux */}
         <div className="footer-logo">
           <NavLink to="/home">
             <img src={logo} alt="Logo Provence Carrelage" />
@@ -74,7 +70,6 @@ const Footer = () => {
 
           
 
-        {/* Bloc Navigation */}
         <nav className="footer-menu" aria-label="Footer navigation">
 <ul>
   <li>

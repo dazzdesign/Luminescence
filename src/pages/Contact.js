@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet';
 import './contact.css';
 import './home.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -85,6 +86,25 @@ const Contact = () => {
 
   return (
     <div className="contact-container">
+      <Helmet>
+        <title>Contact – Carrelage lumineux à Manosque | Luminescence Carrelage</title>
+        <meta
+          name="description"
+          content="Contactez Denis Dussert, artisan spécialiste du carrelage lumineux à Manosque. Devis, infos ou accompagnement personnalisé en Provence."
+        />
+        <meta
+          name="keywords"
+          content="contact carrelage lumineux, artisan Manosque, devis fibre optique carrelage, Denis Dussert, Luminescence Carrelage"
+        />
+        <meta name="author" content="Denis Dussert" />
+        <meta property="og:title" content="Contact – Luminescence Carrelage à Manosque" />
+        <meta property="og:description" content="Besoin d'un devis ou d'une info ? Contactez Luminescence Carrelage, expert du carrelage lumineux en Provence." />
+        <meta property="og:url" content="https://luminescence-carrelage.fr/contact" />
+        <meta property="og:image" content="https://luminescence-carrelage.fr/logo512.png" />
+        <meta property="og:type" content="website" />
+        <link rel="canonical" href="https://luminescence-carrelage.fr/contact" />
+      </Helmet>
+
       <header className="contact-header">
         <h1>Contactez-nous</h1>
         <p className="contact-subtitle">

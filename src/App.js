@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 
 import './App.css';
 
@@ -7,13 +7,13 @@ import Navbar from './components/Navbar/Navbar';
 import Footer from './components/footer/footer';
 
 import Home from './pages/Home';
-import About from './pages/About';
+import About from './pages/About'; // Tu peux le renommer APropos.js si tu veux, mais ce n'est pas obligatoire
 import Services from './pages/Services';
 import Granito from './pages/Granito';
 import Realisations from './pages/Realisations';
 import Contact from './pages/Contact';
 
-import Starfield from './components/background/Starfield'; 
+import Starfield from './components/background/Starfield';
 
 function App() {
   return (
@@ -23,15 +23,21 @@ function App() {
         <Router>
           <div className="App">
             <Navbar />
+
             <Routes>
-              <Route path="/home" element={<Home />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/services" element={<Services />} />
-              <Route path="/Granito" element={<Granito />} />
-              <Route path="/realisations" element={<Realisations />} />
-              <Route path="/contact" element={<Contact />} />
               <Route path="/" element={<Home />} />
+              <Route path="/a-propos" element={<About />} />
+              <Route path="/carrelage-lumineux" element={<Services />} />
+              <Route path="/granito-fibre-optique" element={<Granito />} />
+              <Route path="/projets-realises" element={<Realisations />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/home" element={<Navigate to="/" replace />} />
+              <Route path="/about" element={<Navigate to="/a-propos" replace />} />
+              <Route path="/services" element={<Navigate to="/carrelage-lumineux" replace />} />
+              <Route path="/granito" element={<Navigate to="/granito-fibre-optique" replace />} />
+              <Route path="/realisations" element={<Navigate to="/projets-realises" replace />} />
             </Routes>
+
             <Footer />
           </div>
         </Router>
@@ -41,4 +47,3 @@ function App() {
 }
 
 export default App;
-

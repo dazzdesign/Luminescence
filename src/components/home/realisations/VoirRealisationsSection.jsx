@@ -30,6 +30,8 @@ const VoirRealisationsSection = () => {
   return (
     <section
       className="home-realisations"
+      role="region"
+      aria-labelledby="realisations-title"
       style={{
         backgroundImage: `url(${fibresBg})`,
         backgroundSize: 'cover',
@@ -38,11 +40,12 @@ const VoirRealisationsSection = () => {
       }}
     >
       <div className="realisations-container">
-        <div className="video-wrapper">
+        <div className="video-wrapper" role="presentation" aria-hidden="true">
           <div style={{ position: 'relative', paddingTop: '56.25%', width: '100%' }}>
             <iframe
               src="https://iframe.videodelivery.net/10ea69dcb9aef0eef8b1d0d2ab05dec9"
-              title="Vidéo Réalisation"
+              title="Vidéo des réalisations de Luminescence Carrelage"
+              aria-label="Présentation vidéo des réalisations lumineuses"
               loading="lazy"
               allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture"
               allowFullScreen
@@ -60,14 +63,18 @@ const VoirRealisationsSection = () => {
 
         <div className="realisations-content-wrapper">
           <div className="realisations-content fade-section" ref={contentRef}>
-            <h2 className="realisations-title">
+            <h2 id="realisations-title" className="realisations-title">
               Lumière & design jusque dans les moindres détails
             </h2>
             <p className="realisations-text">
               Plongez dans l’univers de nos réalisations lumineuses uniques.
               Une mise en scène élégante, raffinée et sur-mesure.
             </p>
-            <button className="bouton" onClick={() => navigate('/realisations')}>
+            <button
+              className="bouton"
+              onClick={() => navigate('/realisations')}
+              aria-label="Voir la galerie de réalisations complètes"
+            >
               Voir la galerie complète
             </button>
           </div>

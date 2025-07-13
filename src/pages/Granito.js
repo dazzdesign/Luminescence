@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Helmet } from 'react-helmet';
 import './Granito.css';
 
 const Granito = () => {
@@ -8,6 +9,27 @@ const Granito = () => {
 
   return (
     <div className="granito-container">
+      <Helmet>
+        <title>Granito lumineux sur-mesure – Fibre optique intégrée | Luminescence Carrelage</title>
+        <meta
+          name="description"
+          content="Découvrez notre Granito coulé personnalisé avec intégration de fibre optique. Un sol innovant et lumineux, réalisé sur-mesure avec AD LUCEM."
+        />
+        <meta
+          name="keywords"
+          content="granito lumineux, fibre optique dans le sol, carrelage innovant, sol sur-mesure lumineux, AD LUCEM, terrazzo moderne"
+        />
+        <meta name="author" content="Denis Dussert" />
+
+        {/* Open Graph (réseaux sociaux) */}
+        <meta property="og:title" content="Granito lumineux avec fibre optique – Luminescence Carrelage" />
+        <meta property="og:description" content="Granito coulé sur-mesure avec inclusion de fibre optique. Une innovation décorative unique, signée Luminescence Carrelage." />
+        <meta property="og:url" content="https://luminescence-carrelage.fr/granito" />
+        <meta property="og:image" content="https://luminescence-carrelage.fr/logo512.png" />
+        <meta property="og:type" content="website" />
+        <link rel="canonical" href="https://luminescence-carrelage.fr/granito" />
+      </Helmet>
+
       <h1>Inclusion de fibre optique :<br/> Granito coulé sur-mesure !</h1>
       <p>
         Dans le Granito, les granulats sont directement mélangés dans la masse avant d'être coulés au sol.

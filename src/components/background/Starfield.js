@@ -3,12 +3,11 @@ import React, { useEffect, useRef } from 'react';
 const Starfield = () => {
   const canvasRef = useRef(null);
   const stars = useRef([]);
-
   const numStars = 100;
 
   useEffect(() => {
     const canvas = canvasRef.current;
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext('2d', { willReadFrequently: true });
     let animationFrameId;
 
     const generateStars = () => {
@@ -17,14 +16,17 @@ const Starfield = () => {
         y: Math.random() * window.innerHeight,
         radius: Math.random() * 1.5 + 0.5,
         haloSize: Math.random() * 15 + 10,
-        flicker: Math.random() * 0.5 + 0.5,
       }));
     };
 
+    let resizeTimeout;
     const resize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-      generateStars(); 
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(() => {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        generateStars();
+      }, 100);
     };
 
     resize();
@@ -82,6 +84,8 @@ const Starfield = () => {
   return (
     <canvas
       ref={canvasRef}
+      role="presentation"
+      aria-hidden="true"
       style={{
         position: 'fixed',
         top: 0,

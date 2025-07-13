@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Helmet } from 'react-helmet';
 import './services.css';
 
 const Services = () => {
@@ -8,6 +9,25 @@ const Services = () => {
 
   return (
     <div className="services-container">
+      <Helmet>
+        <title>Carrelage lumineux multisurface – Services | Luminescence Carrelage</title>
+        <meta
+          name="description"
+          content="Découvrez toutes les possibilités offertes par notre savoir-faire : fibre optique intégrée dans le carrelage pour sols, murs, piscines, hammams, espaces bien-être et plus."
+        />
+        <meta
+          name="keywords"
+          content="carrelage lumineux, fibre optique, multisurface, hammam, spa, douche, terrasse, escaliers lumineux, Denis Dussert"
+        />
+        <meta name="author" content="Denis Dussert" />
+        <meta property="og:title" content="Services – Fibre optique et carrelage multisurface" />
+        <meta property="og:description" content="Carrelage lumineux sur mesure : découvrez nos services pour les espaces privés, publics et professionnels." />
+        <meta property="og:url" content="https://luminescence-carrelage.fr/services" />
+        <meta property="og:image" content="https://luminescence-carrelage.fr/logo512.png" />
+        <meta property="og:type" content="website" />
+        <link rel="canonical" href="https://luminescence-carrelage.fr/services" />
+      </Helmet>
+
       <h1>Notre spécialité : la lumière fibre optique multisurface</h1>
       <h2>Un savoir-faire unique pour un rendu spectaculaire</h2>
 

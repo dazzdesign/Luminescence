@@ -3,7 +3,7 @@ body {
 }
 
 
-h1, h2, h3 {
+h1, h2, h3, h4 {
   font-family: 'Poppins'!important, sans-serif;
   background: radial-gradient(circle at 50% 40%, #FFF5B0, #FFD700 40%, #FFC000 70%, #B8860B);
   -webkit-background-clip: text;

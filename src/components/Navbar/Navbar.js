@@ -9,7 +9,6 @@ const Navbar = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  // Gère le redimensionnement de la fenêtre
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 992);
@@ -37,11 +36,12 @@ const Navbar = () => {
 
   return (
     <>
+      {/* Desktop Navigation */}
       {!isMobile && (
-        <nav className="navbar-desktop">
+        <nav className="navbar-desktop" role="navigation" aria-label="Menu principal">
           <div className="navbar-logo">
             <NavLink to="/home">
-              <img src={logo} alt="Logo" />
+              <img src={logo} alt="Logo Luminescence Carrelage" />
             </NavLink>
           </div>
 
@@ -65,22 +65,25 @@ const Navbar = () => {
         </nav>
       )}
 
+      {/* Mobile Navigation */}
       {isMobile && (
         <>
-          <div className="mobile-header">
+          <header className="mobile-header">
             <img
               src={logo}
-              alt="Logo mobile"
+              alt="Logo mobile Luminescence Carrelage"
               className="logo-mobile-centered"
               onClick={handleLogoClick}
               style={{ cursor: 'pointer' }}
             />
-          </div>
+          </header>
 
           <button
             className={`elegant-toggle ${menuOpen ? 'open' : ''}`}
             onClick={() => setMenuOpen(prev => !prev)}
-            aria-label="Menu"
+            aria-label="Ouvrir le menu mobile"
+            aria-expanded={menuOpen}
+            aria-controls="mobile-navigation"
           >
             <div className="hamburger-lines">
               <span />
@@ -89,24 +92,32 @@ const Navbar = () => {
             </div>
           </button>
 
-          <div className={`luxury-menu ${menuOpen ? 'open' : ''}`}>
-            {navLinks.map(({ to, label }, index) => {
-              const isActive =
-                label === 'Accueil' ? isAccueilActive : location.pathname === to;
+          <nav
+            id="mobile-navigation"
+            className={`luxury-menu ${menuOpen ? 'open' : ''}`}
+            role="navigation"
+            aria-label="Menu mobile"
+          >
+            <ul className="mobile-links">
+              {navLinks.map(({ to, label }, index) => {
+                const isActive =
+                  label === 'Accueil' ? isAccueilActive : location.pathname === to;
 
-              return (
-                <NavLink
-                  key={to}
-                  to={to}
-                  className={`menu-link ${isActive ? 'active' : ''}`}
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                  onClick={() => setMenuOpen(false)}
-                >
-                  {label}
-                </NavLink>
-              );
-            })}
-          </div>
+                return (
+                  <li key={to}>
+                    <NavLink
+                      to={to}
+                      className={`menu-link ${isActive ? 'active' : ''}`}
+                      style={{ animationDelay: `${index * 0.1}s` }}
+                      onClick={() => setMenuOpen(false)}
+                    >
+                      {label}
+                    </NavLink>
+                  </li>
+                );
+              })}
+            </ul>
+          </nav>
         </>
       )}
     </>
