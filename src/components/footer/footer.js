@@ -131,7 +131,7 @@ const Footer = () => {
           </p>
           <p>
             <FontAwesomeIcon icon={faEnvelope} className="gold-icon" />
-            contact@luminescence-carrelage.fr
+            Procarre.dussert@wanadoo.fr
           </p>
         </div>
       </div>
