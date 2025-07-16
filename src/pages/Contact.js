@@ -162,7 +162,7 @@ const Contact = () => {
       <div className="contact-info">
         <p>Denis Dussert</p>
         <p><FontAwesomeIcon icon={faPhoneAlt} /> 06.03.12.30.65</p>
-        <p><FontAwesomeIcon icon={faEnvelope} />Procarre.dussert@wanadoo.fr</p>
+        <p><FontAwesomeIcon icon={faEnvelope} /> Procarre.dussert@wanadoo.fr</p>
         <p><FontAwesomeIcon icon={faMapMarkerAlt} /> 302 Chemin des Vannades, 04100 Manosque</p>
       </div>
     </div>
