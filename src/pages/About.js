@@ -25,8 +25,6 @@ const About = () => {
           content="Denis Dussert, artisan carrelage Manosque, PROCARRÉ, fibre optique carrelage, entreprise familiale carrelage Provence"
         />
         <meta name="author" content="Denis Dussert" />
-
-        {/* Open Graph (réseaux sociaux) */}
         <meta property="og:title" content="À propos – Denis Dussert & PROCARRÉ | Luminescence Carrelage" />
         <meta property="og:description" content="Découvrez l'histoire de Luminescence Carrelage et de son fondateur, Denis Dussert, artisan innovant en carrelage lumineux à Manosque." />
         <meta property="og:url" content="https://luminescence-carrelage.fr/a-propos" />

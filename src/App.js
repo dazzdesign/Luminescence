@@ -7,7 +7,7 @@ import Navbar from './components/Navbar/Navbar';
 import Footer from './components/footer/footer';
 
 import Home from './pages/Home';
-import About from './pages/About'; // Tu peux le renommer APropos.js si tu veux, mais ce n'est pas obligatoire
+import About from './pages/About'; 
 import Services from './pages/Services';
 import Granito from './pages/Granito';
 import Realisations from './pages/Realisations';
@@ -23,7 +23,6 @@ function App() {
         <Router>
           <div className="App">
             <Navbar />
-
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/a-propos" element={<About />} />
@@ -37,7 +36,6 @@ function App() {
               <Route path="/granito" element={<Navigate to="/granito-fibre-optique" replace />} />
               <Route path="/realisations" element={<Navigate to="/projets-realises" replace />} />
             </Routes>
-
             <Footer />
           </div>
         </Router>
