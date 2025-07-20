@@ -1,5 +1,7 @@
+/* src/components/TechnologieSection.css */
+
 .how-it-works {
-  padding: 20px 20px;
+  padding: 20px;
   max-width: 1100px;
   margin: 0 auto;
 }
@@ -11,11 +13,10 @@
 
 .how-title {
   font-size: 2.2rem;
-  color: #ffffff;
-  position: relative;
+  color: #fff;
   margin-bottom: 2.5rem;
+  position: relative;
 }
-
 .how-title::after {
   content: '';
   display: block;
@@ -64,9 +65,59 @@
   transform: translateY(0);
 }
 
+/* Hover scale */
+.icon-illustration svg {
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  transform-origin: center center;
+}
+.icon-illustration svg:hover {
+  transform: scale(1.1);
+}
 
+/* Arcs “émanant” de la télécommande */
+.remote-animation {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  margin: 0 auto 1rem;
+}
+.remote-animation::before,
+.remote-animation::after {
+  content: "";
+  position: absolute;
+  top: -2px;           /* juste sous le haut du SVG */
+  left: 50%;
+  width: 30px;
+  height: 15px;        /* demi-cercle */
+  border: 2px solid #64b5f6;
+  border-bottom: none;
+  border-left: none;
+  border-right: none;
+  border-radius: 15px 15px 0 0;
+  transform: translateX(-50%) scale(0.5);
+  opacity: 0;
+  pointer-events: none;
+}
+.remote-animation::before {
+  animation: arc-anim 1.6s ease-out infinite;
+}
+.remote-animation::after {
+  animation: arc-anim 1.6s ease-out infinite;
+  animation-delay: 0.8s;
+}
+@keyframes arc-anim {
+  0% {
+    opacity: 1;
+    transform: translateX(-50%) scale(0.5);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-50%) scale(2);
+  }
+}
 
-
+/* Texte scintillant */
 .highlight-led {
   position: relative;
   color: #fff;
@@ -78,15 +129,8 @@
   animation: shimmerGold 3s ease-in-out infinite;
   text-shadow: 0 0 6px rgba(255, 215, 0, 0.25);
 }
-
 @keyframes shimmerGold {
-  0% {
-    background-position: 0% center;
-  }
-  50% {
-    background-position: 100% center;
-  }
-  100% {
-    background-position: 0% center;
-  }
+  0%   { background-position: 0% center; }
+  50%  { background-position: 100% center; }
+  100% { background-position: 0% center; }
 }

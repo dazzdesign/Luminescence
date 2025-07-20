@@ -11,45 +11,26 @@ const VoirRealisationsSection = () => {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          contentRef.current?.classList.add('visible');
-        } else {
-          contentRef.current?.classList.remove('visible');
-        }
+        contentRef.current?.classList.toggle('visible', entry.isIntersecting);
       },
       { threshold: 0.3 }
     );
-
     const content = contentRef.current;
     if (content) observer.observe(content);
-
-    return () => {
-      if (content) observer.unobserve(content);
-    };
+    return () => { if (content) observer.unobserve(content); };
   }, []);
 
-  console.log('fibresBg →', fibresBg);
-
   return (
-    <section
-      className="home-realisations"
-      role="region"
-      aria-labelledby="realisations-title"
-      style={{
-        backgroundImage: `url(${fibresBg})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-        backgroundAttachment: 'fixed',
-      }}
-    >
+    <section className="home-realisations" role="region" aria-labelledby="realisations-title">
+      {/* ← IMG de fond */}
+      <img src={fibresBg} alt="" aria-hidden="true" className="background-img" />
+
       <div className="realisations-container">
         <div className="video-wrapper" role="presentation" aria-hidden="true">
           <div style={{ position: 'relative', paddingTop: '56.25%', width: '100%' }}>
             <iframe
               src="https://iframe.videodelivery.net/10ea69dcb9aef0eef8b1d0d2ab05dec9"
               title="Vidéo des réalisations de Luminescence Carrelage"
-              aria-label="Présentation vidéo des réalisations lumineuses"
               loading="lazy"
               allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture"
               allowFullScreen
@@ -61,7 +42,7 @@ const VoirRealisationsSection = () => {
                 height: '100%',
                 border: 'none',
               }}
-            ></iframe>
+            />
           </div>
         </div>
 
