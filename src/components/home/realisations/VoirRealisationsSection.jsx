@@ -1,3 +1,4 @@
+// src/components/VoirRealisationsSection.jsx
 import React, { useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './VoirRealisationsSection.css';
@@ -27,6 +28,8 @@ const VoirRealisationsSection = () => {
     };
   }, []);
 
+  console.log('fibresBg →', fibresBg);
+
   return (
     <section
       className="home-realisations"
@@ -37,6 +40,7 @@ const VoirRealisationsSection = () => {
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
+        backgroundAttachment: 'fixed',
       }}
     >
       <div className="realisations-container">
@@ -61,23 +65,21 @@ const VoirRealisationsSection = () => {
           </div>
         </div>
 
-        <div className="realisations-content-wrapper">
-          <div className="realisations-content fade-section" ref={contentRef}>
-            <h2 id="realisations-title" className="realisations-title">
-              Lumière & design jusque dans les moindres détails
-            </h2>
-            <p className="realisations-text">
-              Plongez dans l’univers de nos réalisations lumineuses uniques.
-              Une mise en scène élégante, raffinée et sur-mesure.
-            </p>
-            <button
-              className="bouton"
-              onClick={() => navigate('/realisations')}
-              aria-label="Voir la galerie de réalisations complètes"
-            >
-              Voir la galerie complète
-            </button>
-          </div>
+        <div className="realisations-content-wrapper fade-section" ref={contentRef}>
+          <h2 id="realisations-title" className="realisations-title">
+            Lumière & design jusque dans les moindres détails
+          </h2>
+          <p className="realisations-text">
+            Plongez dans l’univers de nos réalisations lumineuses uniques.
+            Une mise en scène élégante, raffinée et sur-mesure.
+          </p>
+          <button
+            className="bouton"
+            onClick={() => navigate('/realisations')}
+            aria-label="Voir la galerie de réalisations complètes"
+          >
+            Voir la galerie complète
+          </button>
         </div>
       </div>
     </section>
