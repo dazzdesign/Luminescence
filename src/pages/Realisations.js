@@ -1,22 +1,21 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Helmet } from 'react-helmet';
 import Zoom from 'react-medium-image-zoom';
 import 'react-medium-image-zoom/dist/styles.css';
 import './realisation.css';
 
-// 1) require tout le dossier img/chantiers
-const reqImgs = require.context('../img/chantiers', false, /\.jpe?g$/);
+// 1) require tout le dossier img/chantiers (JPEG + PNG, insensible à la casse)
+const reqImgs = require.context('../img/chantiers', false, /\.(jpe?g|png)$/i);
 
-// 2) trie « naturel » pour obtenir : img (1).jpg, img (2).jpg, img (3).jpg, img (3a).jpg, img (3b).jpg, img (4).jpg…
+// 2) tri « naturel »
 const sortedKeys = reqImgs
   .keys()
   .sort((a, b) =>
     a.localeCompare(b, undefined, { numeric: true, sensitivity: 'base' })
   );
 
-// 3) génère le tableau images à partir des clés triées
+// 3) génère le tableau images
 const images = sortedKeys.map((key) => {
-  // extrait le numéro principal pour le titre
   const match = key.match(/img \((\d+)/);
   const num = match ? match[1] : '';
   return {
@@ -36,6 +35,52 @@ const Realisation = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  // ----------- VIDEO 1 : autoplay on visible + centrage (16:9) ----------
+  const frameRef1 = useRef(null);
+  const sentinelRef1 = useRef(null);
+  const [visible1, setVisible1] = useState(false);
+
+  useEffect(() => {
+    const el = sentinelRef1.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      ([e]) => setVisible1(e.isIntersecting && e.intersectionRatio >= 0.5),
+      { threshold: [0, 0.5, 1] }
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
+  const baseSrc1 =
+    'https://customer-xqcdu670n9dp9ds1.cloudflarestream.com/8c069be9c622b2435c0365510215668b/iframe?poster=https%3A%2F%2Fcustomer-xqcdu670n9dp9ds1.cloudflarestream.com%2F8c069be9c622b2435c0365510215668b%2Fthumbnails%2Fthumbnail.jpg%3Ftime%3D%26height%3D600';
+
+  const iframeSrc1 = visible1
+    ? `${baseSrc1}&autoplay=1&muted=1&playsinline=1&loop=1&preload=auto`
+    : `${baseSrc1}&muted=1&playsinline=1&preload=metadata`;
+
+  // ----------- VIDEO 2 (portrait 9:16) : autoplay on visible + centrage ----------
+  const frameRef2 = useRef(null);
+  const sentinelRef2 = useRef(null);
+  const [visible2, setVisible2] = useState(false);
+
+  useEffect(() => {
+    const el = sentinelRef2.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      ([e]) => setVisible2(e.isIntersecting && e.intersectionRatio >= 0.5),
+      { threshold: [0, 0.5, 1] }
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
+  const baseSrc2 =
+    'https://customer-xqcdu670n9dp9ds1.cloudflarestream.com/75d75c7cce678d755d16dabe6507fafc/iframe?poster=https%3A%2F%2Fcustomer-xqcdu670n9dp9ds1.cloudflarestream.com%2F75d75c7cce678d755d16dabe6507fafc%2Fthumbnails%2Fthumbnail.jpg%3Ftime%3D%26height%3D600';
+
+  const iframeSrc2 = visible2
+    ? `${baseSrc2}&autoplay=1&muted=1&playsinline=1&loop=1&preload=auto`
+    : `${baseSrc2}&muted=1&playsinline=1&preload=metadata`;
 
   return (
     <div className="realisation-gallery">
@@ -128,33 +173,80 @@ const Realisation = () => {
               key={index}
               src={img.src}
               alt={img.titre}
-              className={`thumbnail ${
-                index === selectedIndex ? 'active' : ''
-              }`}
+              className={`thumbnail ${index === selectedIndex ? 'active' : ''}`}
               onClick={() => setSelectedIndex(index)}
             />
           ))}
         </div>
       </div>
 
-      {/* Bloc vidéo responsive – ratio 16:9 */}
+      {/* --------- VIDEO 1 : centrée, 16:9, autoplay quand visible --------- */}
       <div className="video-embed" style={{ margin: '2rem 0' }}>
-        <div style={{ position: 'relative', paddingTop: '56.25%' }}>
-          <iframe
-            src="https://customer-xqcdu670n9dp9ds1.cloudflarestream.com/8c069be9c622b2435c0365510215668b/iframe?poster=https%3A%2F%2Fcustomer-xqcdu670n9dp9ds1.cloudflarestream.com%2F8c069be9c622b2435c0365510215668b%2Fthumbnails%2Fthumbnail.jpg%3Ftime%3D%26height%3D600"
-            title="Vidéo de nos réalisations"
-            loading="lazy"
-            allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture"
-            allowFullScreen
+        <div
+          ref={sentinelRef1}
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+          }}
+        >
+          <div
             style={{
-              position: 'absolute',
-              top: 0,
-              left: 0,
-              width: '100%',
-              height: '100%',
-              border: 'none',
+              position: 'relative',
+              width: 'min(100%, 900px)',
+              aspectRatio: '16 / 9',
             }}
-          />
+          >
+            <iframe
+              ref={frameRef1}
+              key={iframeSrc1}
+              src={iframeSrc1}
+              title="Vidéo de nos réalisations"
+              allow="autoplay; fullscreen; accelerometer; gyroscope; encrypted-media; picture-in-picture"
+              allowFullScreen
+              style={{
+                position: 'absolute',
+                inset: 0,
+                width: '100%',
+                height: '100%',
+                border: 'none',
+              }}
+            />
+          </div>
+        </div>
+      </div>
+
+      {/* --------- VIDEO 2 (portrait 9:16) : centrée, autoplay quand visible --------- */}
+      <div className="video-embed" style={{ margin: '2rem 0' }}>
+        <div
+          ref={sentinelRef2}
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+          }}
+        >
+          <div
+            style={{
+              position: 'relative',
+              width: 'min(100%, 560px)', // un peu plus étroit pour de la verticale
+              aspectRatio: '9 / 16',     // équivalent à padding-top: 177.777%
+            }}
+          >
+            <iframe
+              ref={frameRef2}
+              key={iframeSrc2}
+              src={iframeSrc2}
+              title="Vidéo verticale de nos réalisations"
+              allow="autoplay; fullscreen; accelerometer; gyroscope; encrypted-media; picture-in-picture"
+              allowFullScreen
+              style={{
+                position: 'absolute',
+                inset: 0,
+                width: '80%',
+                height: '80%',
+                border: 'none',
+              }}
+            />
+          </div>
         </div>
       </div>
     </div>
