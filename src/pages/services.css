@@ -91,6 +91,38 @@
   overflow: hidden;
 }
 
+/* Le cadre de l'image (portrait 9:16), centré sur la page */
+.img-wrapper {
+  position: relative;
+  width: min(50%, 420px);   /* 50% mais plafonné, adapte si besoin */
+  aspect-ratio: 9 / 16;
+  border-radius: 16px;
+  overflow: hidden;
+
+  /* centre horizontalement le bloc */
+  margin: 24px auto;        /* auto sur les côtés = centré */
+}
+
+/* L'image à l'intérieur : occupe tout le cadre et reste centrée */
+.img-wrapper > img {
+  position: absolute;
+  inset: 0;                 /* top/right/bottom/left: 0 */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;        /* remplissage; si tu veux tout voir: 'contain' */
+  object-position: center;  /* bien centrée dans le cadre */
+  display: block;
+}
+
+/* Optionnel : un peu plus large sur mobile */
+@media (max-width: 600px) {
+  .img-wrapper {
+    width: 80%;
+  }
+}
+
+
+
 .bottom-image-container {
   margin-top: 50px;
   text-align: center;

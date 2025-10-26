@@ -1,7 +1,10 @@
 import React, { useEffect } from 'react';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 import './services.css';
 
+// ⬇️ importe l'image depuis src/components/img/
+// en haut du fichier
+const fibreImage = new URL('../components/img/img18.png', import.meta.url).href;
 const Services = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -51,22 +54,22 @@ const Services = () => {
         Nous réalisons tous types de projets, en France et à l’étranger, avec la même exigence de qualité. Accessible à de nombreux budgets, la fibre optique s’adapte à tous les rêves.
       </p>
 
-      <div className="video-wrapper">
-        <iframe
-          src="https://customer-xqcdu670n9dp9ds1.cloudflarestream.com/14218f1a9dc0cd83796502615a1bc598/iframe?autoplay=1&muted=1"
+      <div className="img-wrapper">
+        <img
+          src={fibreImage}
+          alt="Carrelage lumineux fibre optique"
           style={{
             position: 'absolute',
             top: 0,
             left: 0,
             width: '100%',
             height: '100%',
+            objectFit: 'cover',
             border: 'none',
+            borderRadius: 'inherit',
           }}
-          allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture"
-          allowFullScreen
           loading="lazy"
-          title="Vidéo Fibre Optique"
-        ></iframe>
+        />
       </div>
 
       <h3>Pourquoi la fibre optique ?</h3>

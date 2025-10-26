@@ -179,8 +179,7 @@ const Realisation = () => {
           ))}
         </div>
       </div>
-
-      {/* --------- VIDEO 1 : centrée, 16:9, autoplay quand visible --------- */}
+      <h1 className="realisation-title">Nos Vidéos</h1>
       <div className="video-embed" style={{ margin: '2rem 0' }}>
         <div
           ref={sentinelRef1}
@@ -215,40 +214,45 @@ const Realisation = () => {
         </div>
       </div>
 
-      {/* --------- VIDEO 2 (portrait 9:16) : centrée, autoplay quand visible --------- */}
-      <div className="video-embed" style={{ margin: '2rem 0' }}>
-        <div
-          ref={sentinelRef2}
-          style={{
-            display: 'flex',
-            justifyContent: 'center',
-          }}
-        >
-          <div
-            style={{
-              position: 'relative',
-              width: 'min(100%, 560px)', // un peu plus étroit pour de la verticale
-              aspectRatio: '9 / 16',     // équivalent à padding-top: 177.777%
-            }}
-          >
-            <iframe
-              ref={frameRef2}
-              key={iframeSrc2}
-              src={iframeSrc2}
-              title="Vidéo verticale de nos réalisations"
-              allow="autoplay; fullscreen; accelerometer; gyroscope; encrypted-media; picture-in-picture"
-              allowFullScreen
-              style={{
-                position: 'absolute',
-                inset: 0,
-                width: '80%',
-                height: '80%',
-                border: 'none',
-              }}
-            />
-          </div>
-        </div>
-      </div>
+{/* --------- VIDEO 2 (portrait 9:16) : centrée, autoplay quand visible --------- */}
+<div className="video-embed" style={{ margin: '2rem 0' }}>
+  <div
+    ref={sentinelRef2}
+    style={{
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center', // ← centre aussi verticalement le conteneur
+    }}
+  >
+    <div
+      style={{
+        position: 'relative',
+        width: 'min(100%, 560px)', // largeur max du cadre
+        aspectRatio: '9 / 16',     // cadre 9:16
+        borderRadius: '12px',
+        overflow: 'hidden',
+        background: '#000',        // fond noir (utile si bordures)
+      }}
+    >
+      <iframe
+        ref={frameRef2}
+        key={iframeSrc2}
+        src={iframeSrc2}
+        title="Vidéo verticale de nos réalisations"
+        allow="autoplay; fullscreen; accelerometer; gyroscope; encrypted-media; picture-in-picture"
+        allowFullScreen
+        style={{
+          position: 'absolute',
+          inset: 0,       // ← colle aux bords du cadre
+          width: '100%',  // ← prend toute la largeur du cadre
+          height: '100%', // ← prend toute la hauteur du cadre
+          border: 'none',
+        }}
+      />
+    </div>
+  </div>
+</div>
+
     </div>
   );
 };
