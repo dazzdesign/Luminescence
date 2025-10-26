@@ -17,15 +17,19 @@ const Contact = () => {
   const [successMessage, setSuccessMessage] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
 
+  const serviceID = process.env.REACT_APP_EMAILJS_SERVICE_ID;
+  const templateID = process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
+  const publicKey =
+    process.env.REACT_APP_EMAILJS_PUBLIC_KEY || process.env.REACT_APP_EMAILJS_USER_ID;
+
   useEffect(() => {
     window.scrollTo(0, 0);
-    const publicKey = process.env.REACT_APP_EMAILJS_PUBLIC_KEY || process.env.REACT_APP_EMAILJS_USER_ID;
     if (publicKey) {
       emailjs.init({ publicKey });
     } else {
       console.error('❌ PUBLIC_KEY EmailJS manquant (.env)');
     }
-  }, []);
+  }, [publicKey]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -35,28 +39,52 @@ const Contact = () => {
     setSuccessMessage('');
     setErrorMessage('');
 
-    const serviceID = process.env.REACT_APP_EMAILJS_SERVICE_ID;
-    const templateID = process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
-    const publicKey = process.env.REACT_APP_EMAILJS_PUBLIC_KEY || process.env.REACT_APP_EMAILJS_USER_ID;
-
     if (!serviceID || !templateID || !publicKey) {
       setErrorMessage("❌ Config EmailJS incomplète (SERVICE_ID / TEMPLATE_ID / PUBLIC_KEY).");
       setSending(false);
       return;
     }
 
+    const form = formRef.current;
+    const raw = {
+      name: String(form.name?.value ?? '').trim(),
+      email: String(form.email?.value ?? '').trim(),
+      phone: String(form.phone?.value ?? '').trim(),
+      message: String(form.message?.value ?? '').trim(),
+    };
+
+    if (!raw.name || !raw.email || !raw.message) {
+      setErrorMessage('❌ Merci de remplir Nom, Email et Message.');
+      setSending(false);
+      return;
+    }
+
+    const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(raw.email);
+    if (!emailOk) {
+      setErrorMessage('❌ Adresse email invalide.');
+      setSending(false);
+      return;
+    }
+
+    // Variables envoyées au template EmailJS
+    const params = {
+      name: raw.name,
+      email: raw.email,   // utilisé dans le template: {{email}}
+      phone: raw.phone,   // utilisé dans le template: {{phone}}
+      message: raw.message,
+      reply_to: raw.email // pratique pour le "Reply-To" côté EmailJS
+    };
+
     try {
-      // 👉 sendForm lit automatiquement les <input name="..."> et les envoie au template
-      await emailjs.sendForm(serviceID, templateID, formRef.current, { publicKey });
+      await emailjs.send(serviceID, templateID, params, { publicKey });
       setSuccessMessage('✅ Votre message a été envoyé avec succès !');
-      // reset du formulaire (et donc des champs envoyés)
-      formRef.current.reset();
+      form.reset();
     } catch (err) {
       console.error('❌ Erreur EmailJS :', err);
       setErrorMessage(
         /invalid_grant/i.test(err?.text || '')
-          ? "❌ Autorisation Gmail expirée. Reconnectez Gmail dans EmailJS (Dashboard → Email Services)."
-          : "❌ Échec de l\'envoi. Réessayez plus tard."
+          ? '❌ Autorisation Gmail expirée. Reconnectez Gmail dans EmailJS (Dashboard → Email Services).'
+          : "❌ Échec de l'envoi. Réessayez plus tard."
       );
     } finally {
       setSending(false);
@@ -84,7 +112,7 @@ const Contact = () => {
         </button>
       </header>
 
-      {/* IMPORTANT : les name ci-dessous MATCHENT EXACTEMENT le template EmailJS: {{name}} {{email}} {{phone}} {{message}} */}
+      {/* Le template EmailJS doit utiliser : {{name}}, {{email}}, {{phone}}, {{message}} */}
       <form className="contact-form" ref={formRef} onSubmit={handleSubmit} noValidate>
         <input
           type="text"
@@ -117,6 +145,7 @@ const Contact = () => {
           placeholder="Message"
           className="contact-textarea"
           required
+          rows={6}
         />
 
         <button type="submit" className="bouton" disabled={sending}>
